@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Damian Guilisasti · Software Engineer</title>
+  <meta name="description" content="Software a medida con más de 7 años de experiencia. Apps móviles, web, SaaS y proyectos blockchain. Hablemos por WhatsApp." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #0d0f14;
+      --surface: #161b25;
+      --border:  #1e2535;
+      --accent:  #4f8ef7;
+      --accent2: #7c3aed;
+      --green:   #25d366;
+      --text:    #e8eaf0;
+      --muted:   #7a8499;
+      --radius:  14px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(13,15,20,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--green);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-decoration: none;
+      padding: 0.5rem 1.25rem;
+      border-radius: 999px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.9; transform: scale(1.02); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7rem 1.5rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 40%, rgba(79,142,247,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 60%, rgba(124,58,237,0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1100px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(79,142,247,0.12);
+      border: 1px solid rgba(79,142,247,0.3);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .badge-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:0.5; transform:scale(0.7); }
+    }
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 2rem;
+      line-height: 1.75;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .btn-primary {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--green);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      padding: 0.9rem 2rem;
+      border-radius: 999px;
+      transition: all 0.2s;
+      box-shadow: 0 0 30px rgba(37,211,102,0.25);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(37,211,102,0.4); }
+    .btn-secondary {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 0.9rem 1rem;
+      transition: color 0.2s;
+    }
+    .btn-secondary:hover { color: var(--text); }
+
+    /* PHOTO */
+    .photo-card { position: relative; }
+    .photo-frame {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    }
+    .photo-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .photo-badge {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(13,15,20,0.9);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.55rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .exp-badge {
+      position: absolute;
+      top: -1rem; right: -1rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 16px;
+      padding: 1rem 1.25rem;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(79,142,247,0.3);
+      z-index: 2;
+    }
+    .exp-badge .num { font-size: 2rem; font-weight: 800; line-height: 1; }
+    .exp-badge .lbl { font-size: 0.7rem; font-weight: 600; opacity: 0.85; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    /* STATS */
+    .stats { display: flex; gap: 2rem; margin-top: 2.5rem; flex-wrap: wrap; }
+    .stat-num {
+      font-size: 1.75rem; font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--muted); font-weight: 500; }
+
+    /* SECTIONS */
+    section { padding: 5rem 1.5rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-tag {
+      font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--accent); margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.5rem);
+      font-weight: 800; letter-spacing: -0.025em; margin-bottom: 1rem;
+    }
+    .section-sub {
+      font-size: 1rem; color: var(--muted); max-width: 560px;
+      line-height: 1.75; margin-bottom: 3rem;
+    }
+
+    /* SERVICES */
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 1.25rem; }
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity 0.3s;
+      background: linear-gradient(135deg, rgba(79,142,247,0.05), rgba(124,58,237,0.05));
+    }
+    .service-card:hover { border-color: rgba(79,142,247,0.4); transform: translateY(-4px); }
+    .service-card:hover::before { opacity: 1; }
+    .service-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin-bottom: 1rem;
+    }
+    .service-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .service-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+
+    /* STEPS */
+    .steps-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 2rem; }
+    .step { text-align: center; }
+    .step-num {
+      width: 52px; height: 52px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; font-weight: 800; margin: 0 auto 1rem;
+      box-shadow: 0 8px 20px rgba(79,142,247,0.3);
+    }
+    .step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .step p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .about-text p { color: var(--muted); line-height: 1.8; margin-bottom: 1.25rem; font-size: 0.95rem; }
+    .skills-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+    .tag {
+      background: rgba(79,142,247,0.1); border: 1px solid rgba(79,142,247,0.25);
+      color: var(--accent); font-size: 0.78rem; font-weight: 600;
+      padding: 0.35rem 0.85rem; border-radius: 999px;
+    }
+    .about-highlight { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; }
+    .highlight-item { display: flex; gap: 1rem; align-items: flex-start; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+    .highlight-item:last-child { border-bottom: none; }
+    .highlight-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+    .highlight-item h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .highlight-item p { font-size: 0.83rem; color: var(--muted); }
+
+    /* CTA BANNER */
+    .cta-banner {
+      background: linear-gradient(135deg, rgba(79,142,247,0.12), rgba(124,58,237,0.12));
+      border: 1px solid rgba(79,142,247,0.2);
+      border-radius: 24px; padding: 4rem 2rem; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-banner::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(79,142,247,0.08), transparent);
+    }
+    .cta-banner h2 { font-size: clamp(1.6rem,3vw,2.5rem); font-weight: 800; letter-spacing: -0.025em; margin-bottom: 1rem; }
+    .cta-banner p { color: var(--muted); font-size: 1rem; max-width: 480px; margin: 0 auto 2rem; line-height: 1.75; }
+    .btn-wa {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      background: var(--green); color: #fff; font-weight: 700; font-size: 1.1rem;
+      text-decoration: none; padding: 1rem 2.5rem; border-radius: 999px;
+      transition: all 0.25s; box-shadow: 0 0 40px rgba(37,211,102,0.3);
+    }
+    .btn-wa:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 0 60px rgba(37,211,102,0.45); }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 2rem 1.5rem; text-align: center; color: var(--muted); font-size: 0.85rem; }
+    footer a { color: var(--muted); text-decoration: none; }
+
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 2.5rem; }
+      .badge { margin: 0 auto 1.25rem; }
+      .hero-desc { margin: 0 auto 2rem; }
+      .hero-actions { justify-content: center; }
+      .stats { justify-content: center; }
+      .photo-card { max-width: 320px; margin: 0 auto; }
+      .exp-badge { right: 0; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    @media (max-width: 500px) {
+      nav { padding: 1rem; }
+      h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Damian Guilisasti</div>
+  <a href="https://wa.me/5493413354475?text=Hola%20Damian%2C%20vi%20tu%20p%C3%A1gina%20y%20me%20interesa%20hablar%20sobre%20un%20proyecto" target="_blank" class="nav-cta">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Hablemos
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+<h1>Software que<br>tu negocio<br><span class="gradient-text">necesita</span></h1>
+      <p class="hero-desc">Soy Damian, software engineer con más de 7 años de experiencia construyendo productos digitales reales. Trabajo directamente con vos, sin intermediarios, para convertir tu idea en una solución que funciona.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/5493413354475?text=Hola%20Damian%2C%20vi%20tu%20p%C3%A1gina%20y%20me%20interesa%20hablar%20sobre%20un%20proyecto" target="_blank" class="btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Escribime por WhatsApp
+        </a>
+        <a href="#servicios" class="btn-secondary">Ver qué hago →</a>
+      </div>
+      <div class="stats">
+        <div><div class="stat-num">+7</div><div class="stat-label">años de experiencia</div></div>
+        <div><div class="stat-num">+65</div><div class="stat-label">proyectos entregados</div></div>
+        <div><div class="stat-num">100%</div><div class="stat-label">a medida</div></div>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <div class="exp-badge">
+        <div class="num">7+</div>
+        <div class="lbl">años</div>
+      </div>
+      <div class="photo-frame">
+        <img src="foto.jpg" alt="Damian Guilisasti · Software Engineer" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="section-inner">
+    <div class="section-tag">Servicios</div>
+    <h2 class="section-title">¿En qué te puedo ayudar?</h2>
+    <p class="section-sub">Diseño y construyo software pensando en el negocio, no solo en el código. Cada proyecto es único y lo trato como tal.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon" style="background:rgba(79,142,247,0.12)">📱</div>
+        <h3>Apps Móviles</h3>
+        <p>Aplicaciones nativas o multiplataforma para iOS y Android. Desde el diseño hasta la publicación en las tiendas.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon" style="background:rgba(124,58,237,0.12)">🌐</div>
+        <h3>Webs y Aplicaciones Web</h3>
+        <p>Plataformas, dashboards, portales y sistemas web que escalan con tu negocio. Rápidas, seguras y fáciles de usar.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon" style="background:rgba(37,211,102,0.12)">🚀</div>
+        <h3>SaaS a Medida</h3>
+        <p>Desarrollo de productos SaaS desde cero: arquitectura, backend, frontend y todo lo que necesitás para lanzar y crecer.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon" style="background:rgba(255,184,0,0.12)">⚙️</div>
+        <h3>Sistemas Internos</h3>
+        <p>Software de gestión, ERP, CRM y herramientas internas que automatizan procesos y ahorran tiempo a tu equipo.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon" style="background:rgba(247,79,79,0.12)">🔗</div>
+        <h3>Proyectos Blockchain</h3>
+        <p>Smart contracts, DeFi, NFTs y aplicaciones Web3. Experiencia real en ecosistemas EVM y proyectos crypto productivos.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon" style="background:rgba(0,212,255,0.12)">🤖</div>
+        <h3>Automatizaciones e IA</h3>
+        <p>Integraciones, bots y flujos automáticos con IA. Eliminamos tareas repetitivas para que te enfoques en lo importante.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section id="proceso">
+  <div class="section-inner">
+    <div class="section-tag">Proceso</div>
+    <h2 class="section-title">Así trabajamos juntos</h2>
+    <p class="section-sub">Sin burocracia ni reuniones infinitas. Simple, directo y con foco en resultados.</p>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Me escribís por WhatsApp</h3>
+        <p>Contame tu idea o el problema que querés resolver. Sin formularios ni esperas.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Entendemos el proyecto</h3>
+        <p>Una charla para entender bien qué necesitás y definir el alcance juntos.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Te presento una propuesta</h3>
+        <p>Tiempo estimado, costo y plan de trabajo. Claro y sin sorpresas.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Empezamos a construir</h3>
+        <p>Trabajo con actualizaciones constantes para que siempre sepas cómo avanza tu proyecto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE MÍ -->
+<section id="sobre-mi" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-tag">Sobre mí</div>
+        <h2 class="section-title">Un dev que entiende tu negocio</h2>
+        <p>Soy Damian Guilisasti, software engineer con más de 7 años construyendo productos digitales para startups, empresas y emprendedores de distintos países.</p>
+        <p>Me especialicé en convertir ideas en software real y funcional. No solo escribo código: analizo el problema, propongo soluciones y acompaño cada etapa del proyecto.</p>
+        <p>Trabajo de forma directa con mis clientes, sin agencias ni intermediarios. Eso garantiza mejor comunicación, más agilidad y mejores resultados.</p>
+        <div class="skills-tags">
+          <span class="tag">React / React Native</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Python</span>
+          <span class="tag">Solidity</span>
+          <span class="tag">AWS</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">MongoDB</span>
+          <span class="tag">Web3</span>
+          <span class="tag">APIs REST</span>
+          <span class="tag">Next.js</span>
+          <span class="tag">Docker</span>
+        </div>
+      </div>
+      <div class="about-highlight">
+        <div class="highlight-item">
+          <div class="highlight-icon">💬</div>
+          <div>
+            <h4>Comunicación directa</h4>
+            <p>Trabajás conmigo directamente, no con un equipo anónimo. Siempre sabés quién hace tu proyecto.</p>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">⚡</div>
+          <div>
+            <h4>Entrega rápida</h4>
+            <p>Priorizo la velocidad sin sacrificar calidad. MVPs listos para validar tu idea rápidamente.</p>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">🔒</div>
+          <div>
+            <h4>Código de calidad</h4>
+            <p>Software mantenible, escalable y bien documentado. Tu inversión dura en el tiempo.</p>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon">🌍</div>
+          <div>
+            <h4>Experiencia internacional</h4>
+            <p>Proyectos en múltiples países y sectores. Experiencia real con diferentes mercados.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section>
+  <div class="section-inner">
+    <div class="cta-banner">
+      <h2>¿Tenés una idea en mente?<br><span class="gradient-text">Hablemos hoy.</span></h2>
+      <p>Sin compromisos. Una conversación de 15 minutos puede ser el primer paso de tu próximo proyecto.</p>
+      <a href="https://wa.me/5493413354475?text=Hola%20Damian%2C%20vi%20tu%20p%C3%A1gina%20y%20me%20interesa%20hablar%20sobre%20un%20proyecto" target="_blank" class="btn-wa">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Escribime por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Damian Guilisasti · Software Engineer</p>
+</footer>
+
+</body>
+</html>
