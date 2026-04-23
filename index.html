@@ -465,51 +465,79 @@
   </div>
 
   <div class="clients-marquee" aria-label="Logos de clientes — fila 1">
-    <div class="clients-track">
-      <!-- set original -->
-      <div class="client-card"><img src="logo-clientes/Logo-ByoAlimentos.png" alt="ByoAlimentos" loading="lazy" /></div>
-      <div class="client-card"><img src="logo-clientes/Logo-CDA.png" alt="CDA" loading="lazy" /></div>
-      <div class="client-card"><img src="logo-clientes/Logo-Compa%C3%B1ia-DAB.png" alt="Compañía DAB" loading="lazy" /></div>
-      <div class="client-card"><img src="logo-clientes/Logo-Espejo-Mallorquin.png" alt="Espejo Mallorquín" loading="lazy" /></div>
-      <div class="client-card"><img src="logo-clientes/Logo-Kaplan.jpg" alt="Kaplan" loading="lazy" /></div>
-      <div class="client-card"><img src="logo-clientes/Logo-Market247.png" alt="Market 247" loading="lazy" /></div>
-      <div class="client-card"><img src="logo-clientes/LOGO-WILK-RECTANGULO-TRANSPARENTE.png" alt="Wilk" loading="lazy" /></div>
-      <div class="client-card"><img src="logo-clientes/cropped-Logo-Retok-1.png" alt="Retok" loading="lazy" /></div>
-      <!-- set duplicate (seamless loop) -->
-      <div class="client-card" aria-hidden="true"><img src="logo-clientes/Logo-ByoAlimentos.png" alt="" loading="lazy" /></div>
-      <div class="client-card" aria-hidden="true"><img src="logo-clientes/Logo-CDA.png" alt="" loading="lazy" /></div>
-      <div class="client-card" aria-hidden="true"><img src="logo-clientes/Logo-Compa%C3%B1ia-DAB.png" alt="" loading="lazy" /></div>
-      <div class="client-card" aria-hidden="true"><img src="logo-clientes/Logo-Espejo-Mallorquin.png" alt="" loading="lazy" /></div>
-      <div class="client-card" aria-hidden="true"><img src="logo-clientes/Logo-Kaplan.jpg" alt="" loading="lazy" /></div>
-      <div class="client-card" aria-hidden="true"><img src="logo-clientes/Logo-Market247.png" alt="" loading="lazy" /></div>
-      <div class="client-card" aria-hidden="true"><img src="logo-clientes/LOGO-WILK-RECTANGULO-TRANSPARENTE.png" alt="" loading="lazy" /></div>
-      <div class="client-card" aria-hidden="true"><img src="logo-clientes/cropped-Logo-Retok-1.png" alt="" loading="lazy" /></div>
-    </div>
+    <div class="clients-track" data-row="1"></div>
   </div>
-
   <div class="clients-marquee" aria-label="Logos de clientes — fila 2">
-    <div class="clients-track reverse">
-      <!-- set original -->
-      <div class="client-card"><img src="logo-clientes/office_positivo.png" alt="Office Positivo" loading="lazy" /></div>
-      <div class="client-card"><img src="logo-clientes/logo.png" alt="Cliente" loading="lazy" /></div>
-      <div class="client-card"><img src="logo-clientes/logo-1.png" alt="Cliente" loading="lazy" /></div>
-      <div class="client-card"><img src="logo-clientes/logo_ga2_ros_a.png" alt="Cliente" loading="lazy" /></div>
-      <div class="client-card"><img src="logo-clientes/IMG_0916.png" alt="Cliente" loading="lazy" /></div>
-      <div class="client-card"><img src="logo-clientes/Sin-t%C3%ADtulo-2.png" alt="Cliente" loading="lazy" /></div>
-      <div class="client-card"><img src="logo-clientes/o5cigpiz9gmqueldpxza.png" alt="Cliente" loading="lazy" /></div>
-      <div class="client-card"><img src="logo-clientes/68336973-22a3-4f2e-99e2-78920b1d94d2.png" alt="Cliente" loading="lazy" /></div>
-      <!-- set duplicate (seamless loop) -->
-      <div class="client-card" aria-hidden="true"><img src="logo-clientes/office_positivo.png" alt="" loading="lazy" /></div>
-      <div class="client-card" aria-hidden="true"><img src="logo-clientes/logo.png" alt="" loading="lazy" /></div>
-      <div class="client-card" aria-hidden="true"><img src="logo-clientes/logo-1.png" alt="" loading="lazy" /></div>
-      <div class="client-card" aria-hidden="true"><img src="logo-clientes/logo_ga2_ros_a.png" alt="" loading="lazy" /></div>
-      <div class="client-card" aria-hidden="true"><img src="logo-clientes/IMG_0916.png" alt="" loading="lazy" /></div>
-      <div class="client-card" aria-hidden="true"><img src="logo-clientes/Sin-t%C3%ADtulo-2.png" alt="" loading="lazy" /></div>
-      <div class="client-card" aria-hidden="true"><img src="logo-clientes/o5cigpiz9gmqueldpxza.png" alt="" loading="lazy" /></div>
-      <div class="client-card" aria-hidden="true"><img src="logo-clientes/68336973-22a3-4f2e-99e2-78920b1d94d2.png" alt="" loading="lazy" /></div>
-    </div>
+    <div class="clients-track reverse" data-row="2"></div>
   </div>
 </section>
+
+<script>
+  /* ======================================================================
+     LOGOS DE CLIENTES
+     Para agregar un logo nuevo:
+       1) Copiá el archivo a la carpeta  logo-clientes/
+       2) Agregá su nombre a esta lista (con la extensión)
+       3) Opcional: agregá un "alt" legible con el formato  "archivo.png|Nombre Marca"
+     Listo. El sitio lo reparte solo entre las dos filas.
+     ====================================================================== */
+  const CLIENT_LOGOS = [
+    "Logo-ByoAlimentos.png|ByoAlimentos",
+    "Logo-CDA.png|CDA",
+    "Logo-Compañia-DAB.png|Compañía DAB",
+    "Logo-Espejo-Mallorquin.png|Espejo Mallorquín",
+    "Logo-Kaplan.jpg|Kaplan",
+    "Logo-Market247.png|Market 247",
+    "LOGO-WILK-RECTANGULO-TRANSPARENTE.png|Wilk",
+    "cropped-Logo-Retok-1.png|Retok",
+    "office_positivo.png|Office Positivo",
+    "logo.png",
+    "logo-1.png",
+    "logo_ga2_ros_a.png",
+    "IMG_0916.png",
+    "Sin-título-2.png",
+    "o5cigpiz9gmqueldpxza.png",
+    "68336973-22a3-4f2e-99e2-78920b1d94d2.png",
+    "Logo-new-color2.png",
+    "cooking-gg.png",
+    "billete.png",
+    "namastrade.png",
+    "pedimeya.png"
+  ];
+
+  (function renderClientLogos() {
+    const row1 = document.querySelector('.clients-track[data-row="1"]');
+    const row2 = document.querySelector('.clients-track[data-row="2"]');
+    if (!row1 || !row2) return;
+
+    const buildCard = (entry, hidden) => {
+      const [file, name] = entry.split('|');
+      const alt = hidden ? '' : (name || 'Cliente');
+      const card = document.createElement('div');
+      card.className = 'client-card';
+      if (hidden) card.setAttribute('aria-hidden', 'true');
+      const img = document.createElement('img');
+      img.src = 'logo-clientes/' + encodeURIComponent(file);
+      img.alt = alt;
+      img.loading = 'lazy';
+      card.appendChild(img);
+      return card;
+    };
+
+    // Reparto alternado para mezclar bien el balance visual entre filas
+    const half1 = CLIENT_LOGOS.filter((_, i) => i % 2 === 0);
+    const half2 = CLIENT_LOGOS.filter((_, i) => i % 2 === 1);
+
+    const fill = (row, items) => {
+      // Originales + duplicado para el loop infinito
+      items.forEach(e => row.appendChild(buildCard(e, false)));
+      items.forEach(e => row.appendChild(buildCard(e, true)));
+    };
+
+    fill(row1, half1);
+    fill(row2, half2);
+  })();
+</script>
 
 <!-- SERVICIOS -->
 <section id="servicios" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
