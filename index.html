@@ -297,6 +297,80 @@
     .highlight-item h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.2rem; }
     .highlight-item p { font-size: 0.83rem; color: var(--muted); }
 
+    /* CLIENTES */
+    .clients-section {
+      padding: 5rem 0;
+      overflow: hidden;
+      position: relative;
+      background: var(--bg);
+    }
+    .clients-section .section-inner {
+      padding: 0 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .clients-marquee {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      padding: 0.75rem 0;
+      -webkit-mask-image: linear-gradient(to right, transparent 0, #000 100px, #000 calc(100% - 100px), transparent 100%);
+              mask-image: linear-gradient(to right, transparent 0, #000 100px, #000 calc(100% - 100px), transparent 100%);
+    }
+    .clients-marquee + .clients-marquee { margin-top: 1.25rem; }
+    .clients-track {
+      display: flex;
+      gap: 1.25rem;
+      width: max-content;
+      animation: marquee-left 45s linear infinite;
+      will-change: transform;
+    }
+    .clients-track.reverse {
+      animation: marquee-right 55s linear infinite;
+    }
+    .clients-marquee:hover .clients-track { animation-play-state: paused; }
+    @keyframes marquee-left {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes marquee-right {
+      0%   { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+    .client-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 1.1rem 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 210px;
+      height: 110px;
+      flex-shrink: 0;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .client-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 32px rgba(79,142,247,0.28), 0 0 0 1px rgba(79,142,247,0.35);
+    }
+    .client-card img {
+      max-height: 62px;
+      max-width: 155px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+    @media (max-width: 500px) {
+      .client-card { min-width: 160px; height: 95px; padding: 0.9rem 1.25rem; }
+      .client-card img { max-height: 52px; max-width: 120px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .clients-track, .clients-track.reverse { animation: none; }
+      .clients-marquee { overflow-x: auto; }
+    }
+
     /* CTA BANNER */
     .cta-banner {
       background: linear-gradient(135deg, rgba(79,142,247,0.12), rgba(124,58,237,0.12));
@@ -378,6 +452,61 @@
       <div class="photo-frame">
         <img src="foto.jpg" alt="Damian Guilisasti · Software Engineer" />
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTES -->
+<section id="clientes" class="clients-section">
+  <div class="section-inner">
+    <div class="section-tag">Clientes</div>
+    <h2 class="section-title">Empresas que confían en mi trabajo</h2>
+    <p class="section-sub">Algunas de las marcas y proyectos con los que tuve el gusto de colaborar a lo largo de estos años.</p>
+  </div>
+
+  <div class="clients-marquee" aria-label="Logos de clientes — fila 1">
+    <div class="clients-track">
+      <!-- set original -->
+      <div class="client-card"><img src="logo-clientes/Logo-ByoAlimentos.png" alt="ByoAlimentos" loading="lazy" /></div>
+      <div class="client-card"><img src="logo-clientes/Logo-CDA.png" alt="CDA" loading="lazy" /></div>
+      <div class="client-card"><img src="logo-clientes/Logo-Compa%C3%B1ia-DAB.png" alt="Compañía DAB" loading="lazy" /></div>
+      <div class="client-card"><img src="logo-clientes/Logo-Espejo-Mallorquin.png" alt="Espejo Mallorquín" loading="lazy" /></div>
+      <div class="client-card"><img src="logo-clientes/Logo-Kaplan.jpg" alt="Kaplan" loading="lazy" /></div>
+      <div class="client-card"><img src="logo-clientes/Logo-Market247.png" alt="Market 247" loading="lazy" /></div>
+      <div class="client-card"><img src="logo-clientes/LOGO-WILK-RECTANGULO-TRANSPARENTE.png" alt="Wilk" loading="lazy" /></div>
+      <div class="client-card"><img src="logo-clientes/cropped-Logo-Retok-1.png" alt="Retok" loading="lazy" /></div>
+      <!-- set duplicate (seamless loop) -->
+      <div class="client-card" aria-hidden="true"><img src="logo-clientes/Logo-ByoAlimentos.png" alt="" loading="lazy" /></div>
+      <div class="client-card" aria-hidden="true"><img src="logo-clientes/Logo-CDA.png" alt="" loading="lazy" /></div>
+      <div class="client-card" aria-hidden="true"><img src="logo-clientes/Logo-Compa%C3%B1ia-DAB.png" alt="" loading="lazy" /></div>
+      <div class="client-card" aria-hidden="true"><img src="logo-clientes/Logo-Espejo-Mallorquin.png" alt="" loading="lazy" /></div>
+      <div class="client-card" aria-hidden="true"><img src="logo-clientes/Logo-Kaplan.jpg" alt="" loading="lazy" /></div>
+      <div class="client-card" aria-hidden="true"><img src="logo-clientes/Logo-Market247.png" alt="" loading="lazy" /></div>
+      <div class="client-card" aria-hidden="true"><img src="logo-clientes/LOGO-WILK-RECTANGULO-TRANSPARENTE.png" alt="" loading="lazy" /></div>
+      <div class="client-card" aria-hidden="true"><img src="logo-clientes/cropped-Logo-Retok-1.png" alt="" loading="lazy" /></div>
+    </div>
+  </div>
+
+  <div class="clients-marquee" aria-label="Logos de clientes — fila 2">
+    <div class="clients-track reverse">
+      <!-- set original -->
+      <div class="client-card"><img src="logo-clientes/office_positivo.png" alt="Office Positivo" loading="lazy" /></div>
+      <div class="client-card"><img src="logo-clientes/logo.png" alt="Cliente" loading="lazy" /></div>
+      <div class="client-card"><img src="logo-clientes/logo-1.png" alt="Cliente" loading="lazy" /></div>
+      <div class="client-card"><img src="logo-clientes/logo_ga2_ros_a.png" alt="Cliente" loading="lazy" /></div>
+      <div class="client-card"><img src="logo-clientes/IMG_0916.png" alt="Cliente" loading="lazy" /></div>
+      <div class="client-card"><img src="logo-clientes/Sin-t%C3%ADtulo-2.png" alt="Cliente" loading="lazy" /></div>
+      <div class="client-card"><img src="logo-clientes/o5cigpiz9gmqueldpxza.png" alt="Cliente" loading="lazy" /></div>
+      <div class="client-card"><img src="logo-clientes/68336973-22a3-4f2e-99e2-78920b1d94d2.png" alt="Cliente" loading="lazy" /></div>
+      <!-- set duplicate (seamless loop) -->
+      <div class="client-card" aria-hidden="true"><img src="logo-clientes/office_positivo.png" alt="" loading="lazy" /></div>
+      <div class="client-card" aria-hidden="true"><img src="logo-clientes/logo.png" alt="" loading="lazy" /></div>
+      <div class="client-card" aria-hidden="true"><img src="logo-clientes/logo-1.png" alt="" loading="lazy" /></div>
+      <div class="client-card" aria-hidden="true"><img src="logo-clientes/logo_ga2_ros_a.png" alt="" loading="lazy" /></div>
+      <div class="client-card" aria-hidden="true"><img src="logo-clientes/IMG_0916.png" alt="" loading="lazy" /></div>
+      <div class="client-card" aria-hidden="true"><img src="logo-clientes/Sin-t%C3%ADtulo-2.png" alt="" loading="lazy" /></div>
+      <div class="client-card" aria-hidden="true"><img src="logo-clientes/o5cigpiz9gmqueldpxza.png" alt="" loading="lazy" /></div>
+      <div class="client-card" aria-hidden="true"><img src="logo-clientes/68336973-22a3-4f2e-99e2-78920b1d94d2.png" alt="" loading="lazy" /></div>
     </div>
   </div>
 </section>
