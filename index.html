@@ -502,7 +502,9 @@
     "cooking-gg.png",
     "billete.png",
     "namastrade.png",
-    "pedimeya.png"
+    "pedimeya.png",
+    "build check pro.png|Build Check Pro",
+    "nexplace.png|Nexplace"
   ];
 
   (function renderClientLogos() {
@@ -519,7 +521,7 @@
       const img = document.createElement('img');
       img.src = 'logo-clientes/' + encodeURIComponent(file);
       img.alt = alt;
-      img.loading = 'lazy';
+      img.decoding = 'async';
       card.appendChild(img);
       return card;
     };
