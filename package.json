@@ -1,0 +1,9 @@
+{
+  "name": "personal-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio personal de Damian Guilisasti",
+  "dependencies": {
+    "resend": "^6.20.0"
+  }
+}

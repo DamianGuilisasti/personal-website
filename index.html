@@ -4,7 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Damian Guilisasti · Software Engineer</title>
-  <meta name="description" content="Software a medida con más de 7 años de experiencia. Apps móviles, web, SaaS y proyectos blockchain. Hablemos por WhatsApp." />
+  <meta name="description" id="meta-description" content="Software a medida con más de 7 años de experiencia. Apps móviles, web, SaaS y proyectos blockchain. Hablemos por WhatsApp." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon-32x32.png" sizes="32x32" type="image/png" />
+  <link rel="icon" href="favicon-16x16.png" sizes="16x16" type="image/png" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -54,6 +59,28 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: transparent;
+      color: var(--muted);
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
+      border: 1px solid var(--border);
+      padding: 0.5rem 0.85rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .lang-toggle:hover { color: var(--text); border-color: rgba(79,142,247,0.4); }
     .nav-cta {
       display: flex;
       align-items: center;
@@ -268,6 +295,254 @@
     .service-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
     .service-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
 
+    /* PORTFOLIO */
+    .portfolio-featured-carousel-wrap { position: relative; display: flex; align-items: center; gap: 0.75rem; }
+    .portfolio-grid {
+      display: flex; gap: 1.5rem; overflow-x: auto; scroll-behavior: smooth;
+      scroll-snap-type: x mandatory; padding: 0.25rem 0.1rem 1rem;
+      scrollbar-width: none; -ms-overflow-style: none;
+    }
+    .portfolio-grid::-webkit-scrollbar { display: none; }
+    .portfolio-card {
+      flex: 0 0 340px;
+      scroll-snap-align: start;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    @media (max-width: 640px) {
+      .portfolio-card { flex-basis: 85vw; }
+      .portfolio-featured-carousel-wrap .portfolio-carousel-nav { display: none; }
+    }
+    .portfolio-card:hover { border-color: rgba(79,142,247,0.4); transform: translateY(-4px); }
+    .portfolio-media {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: #0a0c11;
+    }
+    .portfolio-media img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .portfolio-media-logo {
+      background: #fff;
+      display: flex; align-items: center; justify-content: center;
+      padding: 2rem;
+    }
+    .portfolio-media-logo img {
+      width: auto; height: auto;
+      max-width: 70%; max-height: 65%;
+      object-fit: contain;
+    }
+    .portfolio-caption {
+      position: absolute;
+      bottom: 0.75rem; left: 0.75rem;
+      background: rgba(13,15,20,0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+    }
+    .portfolio-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; flex: 1; }
+    .portfolio-body h3 { font-size: 1.15rem; font-weight: 800; }
+    .portfolio-body p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; flex: 1; }
+    .portfolio-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .portfolio-tag {
+      background: rgba(79,142,247,0.1); border: 1px solid rgba(79,142,247,0.25);
+      color: var(--accent); font-size: 0.72rem; font-weight: 600;
+      padding: 0.3rem 0.65rem; border-radius: 999px;
+    }
+    .portfolio-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      color: var(--accent); font-size: 0.88rem; font-weight: 700;
+      text-decoration: none; margin-top: 0.25rem;
+    }
+    .portfolio-link:hover { text-decoration: underline; }
+    .portfolio-note { font-size: 0.8rem; color: var(--muted); font-style: italic; margin-top: 0.25rem; }
+
+    .portfolio-card { cursor: pointer; }
+    .portfolio-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .portfolio-expand-badge {
+      position: absolute; bottom: 0.75rem; right: 0.75rem;
+      background: rgba(13,15,20,0.85); backdrop-filter: blur(8px);
+      border: 1px solid var(--border); color: var(--text);
+      font-size: 0.72rem; font-weight: 700; padding: 0.35rem 0.7rem; border-radius: 999px;
+      opacity: 0; transform: translateY(4px);
+      transition: opacity 0.2s, transform 0.2s;
+      pointer-events: none;
+    }
+    .portfolio-card:hover .portfolio-expand-badge,
+    .portfolio-card:focus-visible .portfolio-expand-badge { opacity: 1; transform: translateY(0); }
+    @media (hover: none) {
+      .portfolio-expand-badge { opacity: 1; transform: none; background: rgba(13,15,20,0.7); }
+    }
+
+    /* BROWSER MOCKUP (screenshots of live sites) */
+    .browser-mockup { display: flex; flex-direction: column; background: #11151f; }
+    .browser-mockup-bar {
+      display: flex; align-items: center; gap: 5px;
+      padding: 0.4rem 0.6rem; background: #1a2030; flex-shrink: 0;
+    }
+    .browser-mockup-bar .dot { width: 8px; height: 8px; border-radius: 50%; }
+    .browser-mockup-bar .dot.red { background: #ff5f57; }
+    .browser-mockup-bar .dot.yellow { background: #febc2e; }
+    .browser-mockup-bar .dot.green { background: #28c840; }
+    .browser-mockup-url {
+      margin-left: 0.4rem; background: rgba(255,255,255,0.07); border-radius: 999px;
+      padding: 0.12rem 0.65rem; font-size: 0.65rem; color: var(--muted);
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 220px;
+    }
+    .portfolio-media .browser-mockup { position: absolute; inset: 0; }
+    .portfolio-media .browser-mockup img { flex: 1; width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; min-height: 0; }
+
+    /* PORTFOLIO MODAL */
+    .portfolio-modal {
+      position: fixed; inset: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: center; padding: 1.5rem;
+      opacity: 0; pointer-events: none; transition: opacity 0.2s;
+    }
+    .portfolio-modal.open { opacity: 1; pointer-events: auto; }
+    .portfolio-modal-overlay { position: absolute; inset: 0; background: rgba(5,6,10,0.82); backdrop-filter: blur(4px); }
+    .portfolio-modal-content {
+      position: relative; z-index: 1; background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; max-width: 760px; width: 100%; max-height: 90vh; overflow-y: auto;
+      padding: 1.5rem; box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    }
+    .portfolio-modal-close {
+      position: absolute; top: 1rem; right: 1rem; z-index: 2;
+      width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border);
+      background: rgba(13,15,20,0.7); color: var(--text); font-size: 1.1rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; transition: border-color 0.2s;
+    }
+    .portfolio-modal-close:hover { border-color: rgba(79,142,247,0.5); }
+    .portfolio-modal-gallery { position: relative; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+    .portfolio-modal-image-wrap { flex: 1; min-width: 0; }
+    .portfolio-modal-image-wrap .browser-mockup { width: 100%; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+    .portfolio-modal-image-wrap .browser-mockup img { width: 100%; height: auto; max-height: 52vh; object-fit: contain; background: #05070b; display: block; }
+    .portfolio-modal-image-wrap .browser-mockup .browser-mockup-bar { padding: 0.55rem 0.85rem; }
+    .portfolio-modal-image-wrap .browser-mockup .dot { width: 10px; height: 10px; }
+    .portfolio-modal-image-wrap .browser-mockup .browser-mockup-url { font-size: 0.75rem; padding: 0.2rem 0.9rem; max-width: 320px; }
+    .portfolio-modal-image-wrap .plain-shot { position: relative; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); background: #05070b; }
+    .portfolio-modal-image-wrap .plain-shot img { width: 100%; height: auto; max-height: 52vh; object-fit: contain; display: block; }
+    .portfolio-modal-nav {
+      flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border);
+      background: rgba(13,15,20,0.7); color: var(--text); font-size: 1.3rem; line-height: 1; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; transition: border-color 0.2s;
+    }
+    .portfolio-modal-nav:hover { border-color: rgba(79,142,247,0.5); }
+    .portfolio-modal-nav[hidden] { display: none; }
+    .portfolio-modal-dots { display: flex; justify-content: center; gap: 0.4rem; margin-bottom: 1.25rem; }
+    .portfolio-modal-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--border); border: none; padding: 0; cursor: pointer; }
+    .portfolio-modal-dot.active { background: var(--accent); }
+    .portfolio-modal-body h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .portfolio-modal-body p { font-size: 0.92rem; color: var(--muted); line-height: 1.7; margin-bottom: 1rem; }
+    .portfolio-modal-body .portfolio-tags { margin-bottom: 1rem; }
+    .portfolio-modal-image-wrap .logo-shot {
+      display: flex; align-items: center; justify-content: center;
+      background: #fff; border-radius: 10px; border: 1px solid var(--border);
+      padding: 3rem 2rem; min-height: 220px;
+    }
+    .portfolio-modal-image-wrap .logo-shot img { max-width: 220px; max-height: 140px; object-fit: contain; }
+    .portfolio-modal-image-wrap .logo-shot-fallback {
+      width: 96px; height: 96px; border-radius: 20px;
+      background: linear-gradient(135deg, rgba(79,142,247,0.15), rgba(124,58,237,0.15));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 2rem; color: var(--accent);
+    }
+    .portfolio-modal-cta {
+      display: none; align-items: center; justify-content: center; gap: 0.5rem;
+      background: var(--green); color: #fff; font-weight: 700; font-size: 0.92rem;
+      text-decoration: none; padding: 0.75rem 1.4rem; border-radius: 999px; margin-top: 0.25rem;
+      width: fit-content;
+    }
+
+    /* PORTFOLIO — todos los proyectos (búsqueda + filtro) */
+    .portfolio-all-header { margin-bottom: 1.75rem; }
+    .portfolio-all-title { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .portfolio-all-sub { font-size: 0.92rem; color: var(--muted); max-width: 560px; line-height: 1.7; }
+    .portfolio-search-row {
+      display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;
+      justify-content: space-between; margin-bottom: 1.75rem;
+    }
+    .portfolio-search { position: relative; flex: 1; min-width: 220px; max-width: 320px; }
+    .portfolio-search-icon {
+      position: absolute; left: 0.9rem; top: 50%; transform: translateY(-50%);
+      font-size: 0.85rem; opacity: 0.6; pointer-events: none;
+    }
+    .portfolio-search input {
+      width: 100%; background: var(--surface); border: 1px solid var(--border);
+      border-radius: 999px; padding: 0.65rem 1rem 0.65rem 2.3rem;
+      color: var(--text); font-size: 0.88rem; font-family: inherit;
+    }
+    .portfolio-search input:focus { outline: none; border-color: rgba(79,142,247,0.5); }
+    .portfolio-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .portfolio-chip {
+      background: var(--surface); border: 1px solid var(--border); color: var(--muted);
+      font-size: 0.78rem; font-weight: 600; padding: 0.45rem 0.9rem; border-radius: 999px;
+      cursor: pointer; transition: all 0.2s; font-family: inherit;
+    }
+    .portfolio-chip:hover { border-color: rgba(79,142,247,0.4); color: var(--text); }
+    .portfolio-chip.active { background: rgba(79,142,247,0.12); border-color: rgba(79,142,247,0.5); color: var(--accent); }
+    .portfolio-all-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(150px,1fr)); gap: 1rem; }
+    .portfolio-all-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+      padding: 1.25rem 1rem; display: flex; flex-direction: column; align-items: center;
+      gap: 0.75rem; text-align: center; cursor: pointer; transition: border-color 0.2s, transform 0.2s;
+    }
+    .portfolio-all-card:hover, .portfolio-all-card:focus-visible {
+      border-color: rgba(79,142,247,0.4); transform: translateY(-3px); outline: none;
+    }
+    .portfolio-all-logo {
+      width: 100%; height: 56px; display: flex; align-items: center; justify-content: center;
+      background: #fff; border-radius: 10px; padding: 0.5rem;
+    }
+    .portfolio-all-logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+    .portfolio-all-logo.portfolio-all-logo-fallback {
+      background: linear-gradient(135deg, rgba(79,142,247,0.15), rgba(124,58,237,0.15));
+      font-weight: 800; font-size: 1.1rem; color: var(--accent);
+    }
+    .portfolio-all-name { font-size: 0.8rem; font-weight: 600; color: var(--text); line-height: 1.4; }
+    .portfolio-all-empty { text-align: center; color: var(--muted); font-size: 0.9rem; padding: 2rem 0; }
+
+    /* PORTFOLIO — botón "ver todos" */
+    .portfolio-carousel-nav {
+      flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--border);
+      background: rgba(13,15,20,0.7); color: var(--text); font-size: 1.3rem; line-height: 1; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; transition: border-color 0.2s;
+    }
+    .portfolio-carousel-nav:hover { border-color: rgba(79,142,247,0.5); }
+    .portfolio-carousel-nav:disabled { opacity: 0.35; cursor: default; pointer-events: none; }
+    @media (max-width: 640px) {
+      .portfolio-carousel-nav { display: none; }
+    }
+
+    .portfolio-all-toggle-row { display: flex; justify-content: center; margin-bottom: 2.5rem; }
+    .portfolio-all-toggle {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; border: 1px solid var(--border); color: var(--text);
+      font-family: inherit; font-weight: 700; font-size: 0.9rem;
+      padding: 0.75rem 1.5rem; border-radius: 999px; cursor: pointer; transition: all 0.2s;
+    }
+    .portfolio-all-toggle:hover { border-color: rgba(79,142,247,0.5); color: var(--accent); }
+    .portfolio-all-toggle-arrow { display: inline-block; transition: transform 0.25s; }
+    .portfolio-all-toggle.open .portfolio-all-toggle-arrow { transform: rotate(180deg); }
+
+    .portfolio-all-panel { animation: portfolioPanelIn 0.25s ease; }
+    @keyframes portfolioPanelIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     /* STEPS */
     .steps-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 2rem; }
     .step { text-align: center; }
@@ -371,26 +646,75 @@
       .clients-marquee { overflow-x: auto; }
     }
 
-    /* CTA BANNER */
+    /* CTA / CONTACT BANNER */
     .cta-banner {
       background: linear-gradient(135deg, rgba(79,142,247,0.12), rgba(124,58,237,0.12));
       border: 1px solid rgba(79,142,247,0.2);
-      border-radius: 24px; padding: 4rem 2rem; text-align: center;
+      border-radius: 24px; padding: 3.5rem 2rem;
       position: relative; overflow: hidden;
     }
     .cta-banner::before {
       content: ''; position: absolute; inset: 0; pointer-events: none;
       background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(79,142,247,0.08), transparent);
     }
-    .cta-banner h2 { font-size: clamp(1.6rem,3vw,2.5rem); font-weight: 800; letter-spacing: -0.025em; margin-bottom: 1rem; }
-    .cta-banner p { color: var(--muted); font-size: 1rem; max-width: 480px; margin: 0 auto 2rem; line-height: 1.75; }
-    .btn-wa {
-      display: inline-flex; align-items: center; gap: 0.75rem;
-      background: var(--green); color: #fff; font-weight: 700; font-size: 1.1rem;
-      text-decoration: none; padding: 1rem 2.5rem; border-radius: 999px;
-      transition: all 0.25s; box-shadow: 0 0 40px rgba(37,211,102,0.3);
+    .cta-header { text-align: center; max-width: 560px; margin: 0 auto 2.5rem; position: relative; }
+    .cta-header h2 { font-size: clamp(1.6rem,3vw,2.5rem); font-weight: 800; letter-spacing: -0.025em; margin-bottom: 1rem; }
+    .cta-header p { color: var(--muted); font-size: 1rem; line-height: 1.75; }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr; gap: 1.5rem;
+      max-width: 480px; margin: 0 auto; position: relative;
     }
-    .btn-wa:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 0 60px rgba(37,211,102,0.45); }
+    .contact-card {
+      background: rgba(13,15,20,0.55);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      display: flex; flex-direction: column;
+    }
+    .contact-card h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .contact-card > p { color: var(--muted); font-size: 0.9rem; line-height: 1.65; margin-bottom: 1.5rem; }
+    .btn-wa {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.65rem;
+      background: var(--green); color: #fff; font-weight: 700; font-size: 1rem;
+      text-decoration: none; padding: 0.9rem 1.5rem; border-radius: 999px;
+      transition: all 0.25s; box-shadow: 0 0 30px rgba(37,211,102,0.25);
+      margin-top: auto;
+    }
+    .btn-wa:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(37,211,102,0.4); }
+
+    .contact-form { display: flex; flex-direction: column; gap: 0.9rem; flex: 1; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group label { font-size: 0.8rem; font-weight: 600; color: var(--muted); }
+    .form-group input, .form-group textarea {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.7rem 0.85rem;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.9rem;
+      resize: vertical;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none; border-color: var(--accent);
+    }
+    .form-honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .btn-submit {
+      display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff; font-weight: 700; font-size: 0.95rem; font-family: inherit;
+      border: none; padding: 0.85rem 1.5rem; border-radius: 999px;
+      cursor: pointer; transition: transform 0.2s, opacity 0.2s;
+      margin-top: 0.25rem;
+    }
+    .btn-submit:hover { transform: translateY(-2px); }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .form-status {
+      font-size: 0.85rem; font-weight: 600; min-height: 1.2em;
+    }
+    .form-status[data-state="success"] { color: var(--green); }
+    .form-status[data-state="error"] { color: #ff8a8a; }
 
     /* FOOTER */
     footer { border-top: 1px solid var(--border); padding: 2rem 1.5rem; text-align: center; color: var(--muted); font-size: 0.85rem; }
@@ -406,10 +730,16 @@
       .photo-card { max-width: 320px; margin: 0 auto; }
       .exp-badge { right: 0; }
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .contact-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 500px) {
       nav { padding: 1rem; }
       h1 { font-size: 2rem; }
+      .cta-banner { padding: 2.5rem 1.25rem; }
+      .contact-card { padding: 1.5rem; }
+      .portfolio-modal { padding: 0.75rem; }
+      .portfolio-modal-content { padding: 1.25rem; max-height: 94vh; }
+      .portfolio-modal-nav { width: 30px; height: 30px; font-size: 1.1rem; }
     }
   </style>
 </head>
@@ -418,39 +748,42 @@
 <!-- NAV -->
 <nav>
   <div class="nav-logo">Damian Guilisasti</div>
-  <a href="https://wa.me/5493413354475?text=Hola%20Damian%2C%20vi%20tu%20p%C3%A1gina%20y%20me%20interesa%20hablar%20sobre%20un%20proyecto" target="_blank" class="nav-cta">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    Hablemos
-  </a>
+  <div class="nav-actions">
+    <button type="button" id="lang-toggle" class="lang-toggle" aria-label="Switch language"><span id="lang-toggle-label">EN</span></button>
+    <a href="https://wa.me/5493413354475?text=Hola%20Damian%2C%20vi%20tu%20p%C3%A1gina%20y%20me%20interesa%20hablar%20sobre%20un%20proyecto" target="_blank" class="nav-cta wa-link" id="wa-nav">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span data-i18n="nav.cta">Hablemos</span>
+    </a>
+  </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <div>
-<h1>Software que<br>tu negocio<br><span class="gradient-text">necesita</span></h1>
-      <p class="hero-desc">Soy Damian, software engineer con más de 7 años de experiencia construyendo productos digitales reales. Trabajo directamente con vos, sin intermediarios, para convertir tu idea en una solución que funciona.</p>
+<h1 data-i18n="hero.title">Software que<br>tu negocio<br><span class="gradient-text">necesita</span></h1>
+      <p class="hero-desc" data-i18n="hero.desc">Soy Damian, software engineer con más de 7 años de experiencia construyendo productos digitales reales. Trabajo directamente con vos, sin intermediarios, para convertir tu idea en una solución que funciona.</p>
       <div class="hero-actions">
-        <a href="https://wa.me/5493413354475?text=Hola%20Damian%2C%20vi%20tu%20p%C3%A1gina%20y%20me%20interesa%20hablar%20sobre%20un%20proyecto" target="_blank" class="btn-primary">
+        <a href="https://wa.me/5493413354475?text=Hola%20Damian%2C%20vi%20tu%20p%C3%A1gina%20y%20me%20interesa%20hablar%20sobre%20un%20proyecto" target="_blank" class="btn-primary wa-link" id="wa-hero">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Escribime por WhatsApp
+          <span data-i18n="hero.btnPrimary">Escribime por WhatsApp</span>
         </a>
-        <a href="#servicios" class="btn-secondary">Ver qué hago →</a>
+        <a href="#servicios" class="btn-secondary" data-i18n="hero.btnSecondary">Ver qué hago →</a>
       </div>
       <div class="stats">
-        <div><div class="stat-num">+7</div><div class="stat-label">años de experiencia</div></div>
-        <div><div class="stat-num">+65</div><div class="stat-label">proyectos entregados</div></div>
-        <div><div class="stat-num">100%</div><div class="stat-label">a medida</div></div>
+        <div><div class="stat-num">+7</div><div class="stat-label" data-i18n="hero.statYears">años de experiencia</div></div>
+        <div><div class="stat-num">+65</div><div class="stat-label" data-i18n="hero.statProjects">proyectos entregados</div></div>
+        <div><div class="stat-num">100%</div><div class="stat-label" data-i18n="hero.statCustom">a medida</div></div>
       </div>
     </div>
 
     <div class="photo-card">
       <div class="exp-badge">
         <div class="num">7+</div>
-        <div class="lbl">años</div>
+        <div class="lbl" data-i18n="hero.expBadge">años</div>
       </div>
       <div class="photo-frame">
-        <img src="foto.jpg" alt="Damian Guilisasti · Software Engineer" />
+        <img src="foto.jpg" alt="Damian Guilisasti · Software Engineer" data-i18n-alt="hero.photoAlt" />
       </div>
     </div>
   </div>
@@ -459,9 +792,9 @@
 <!-- CLIENTES -->
 <section id="clientes" class="clients-section">
   <div class="section-inner">
-    <div class="section-tag">Clientes</div>
-    <h2 class="section-title">Empresas que confían en mi trabajo</h2>
-    <p class="section-sub">Algunas de las marcas y proyectos con los que tuve el gusto de colaborar a lo largo de estos años.</p>
+    <div class="section-tag" data-i18n="clients.tag">Clientes</div>
+    <h2 class="section-title" data-i18n="clients.title">Empresas que confían en mi trabajo</h2>
+    <p class="section-sub" data-i18n="clients.sub">Algunas de las marcas y proyectos con los que tuve el gusto de colaborar a lo largo de estos años.</p>
   </div>
 
   <div class="clients-marquee" aria-label="Logos de clientes — fila 1">
@@ -541,42 +874,194 @@
   })();
 </script>
 
-<!-- SERVICIOS -->
-<section id="servicios" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+<!-- PORTFOLIO -->
+<section id="portfolio" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
   <div class="section-inner">
-    <div class="section-tag">Servicios</div>
-    <h2 class="section-title">¿En qué te puedo ayudar?</h2>
-    <p class="section-sub">Diseño y construyo software pensando en el negocio, no solo en el código. Cada proyecto es único y lo trato como tal.</p>
+    <div class="section-tag" data-i18n="portfolio.tag">Portfolio</div>
+    <h2 class="section-title" data-i18n="portfolio.title">Proyectos que hablan por sí solos</h2>
+    <p class="section-sub" data-i18n="portfolio.sub">Una selección de trabajos reales, con clientes reales — así trabajo de principio a fin.</p>
+
+    <div class="portfolio-featured-carousel-wrap">
+      <button type="button" class="portfolio-carousel-nav prev" id="portfolio-featured-prev" aria-label="Previous">‹</button>
+      <div class="portfolio-grid" id="portfolio-grid">
+      <!-- RETOK -->
+      <div class="portfolio-card" data-project="retok" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="portfolio-media">
+          <div class="browser-mockup">
+            <div class="browser-mockup-bar">
+              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              <span class="browser-mockup-url">retokdetailshop.com.ar</span>
+            </div>
+            <img src="porfolio/retok-01.jpg" alt="Retok — e-commerce de productos para motos" data-i18n-alt="portfolio.p2Alt" loading="lazy" />
+          </div>
+          <span class="portfolio-expand-badge" data-portfolio-badge></span>
+        </div>
+        <div class="portfolio-body">
+          <h3>Retok</h3>
+          <p data-i18n="portfolio.p2Desc">Tienda online para venta de productos de cuidado y accesorios para motos, con catálogo, carrito y contacto directo por WhatsApp para cerrar más ventas.</p>
+          <div class="portfolio-tags">
+            <span class="portfolio-tag">E-commerce</span>
+            <span class="portfolio-tag">Web</span>
+          </div>
+          <a href="https://retokdetailshop.com.ar/" target="_blank" class="portfolio-link" data-i18n="portfolio.linkLabel">Ver sitio →</a>
+        </div>
+      </div>
+
+      <!-- HYAR -->
+      <div class="portfolio-card" data-project="hyar" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="portfolio-media">
+          <div class="browser-mockup">
+            <div class="browser-mockup-bar">
+              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              <span class="browser-mockup-url">hyar.com.ar</span>
+            </div>
+            <img src="porfolio/hyar-01.jpg" alt="HyAR — ingeniería en refrigeración industrial" data-i18n-alt="portfolio.p3Alt" loading="lazy" />
+          </div>
+          <span class="portfolio-expand-badge" data-portfolio-badge></span>
+        </div>
+        <div class="portfolio-body">
+          <h3>HyAR</h3>
+          <p data-i18n="portfolio.p3Desc">Sitio institucional para una empresa de ingeniería en refrigeración industrial y comercial, enfocado en generar consultas con un diagnóstico sin cargo.</p>
+          <div class="portfolio-tags">
+            <span class="portfolio-tag">Landing B2B</span>
+            <span class="portfolio-tag" data-i18n="portfolio.p3Tag2">Ingeniería</span>
+          </div>
+          <a href="https://hyar.com.ar/" target="_blank" class="portfolio-link" data-i18n="portfolio.linkLabel">Ver sitio →</a>
+        </div>
+      </div>
+
+      <!-- 9H DETAIL STORE -->
+      <div class="portfolio-card" data-project="9h" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="portfolio-media portfolio-media-logo">
+          <img src="logo-clientes/IMG_0916.png" alt="9H Detail Store" data-i18n-alt="portfolio.p4Alt" loading="lazy" />
+          <span class="portfolio-expand-badge" data-portfolio-badge></span>
+        </div>
+        <div class="portfolio-body">
+          <h3>9H Detail Store</h3>
+          <p data-i18n="portfolio.p4Desc">Uno de los proyectos que desarrollé para 9H Detail Store. Escribime si querés conocer más sobre este caso.</p>
+          <div class="portfolio-tags">
+            <span class="portfolio-tag" data-i18n="portfolio.catServicios">Servicios</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMPAÑÍA DAB -->
+      <div class="portfolio-card" data-project="dab" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="portfolio-media portfolio-media-logo">
+          <img src="logo-clientes/Logo-Compañia-DAB.png" alt="Compañía DAB" data-i18n-alt="portfolio.p5Alt" loading="lazy" />
+          <span class="portfolio-expand-badge" data-portfolio-badge></span>
+        </div>
+        <div class="portfolio-body">
+          <h3>Compañía DAB</h3>
+          <p data-i18n="portfolio.p5Desc">Uno de los proyectos que desarrollé para Compañía DAB. Escribime si querés conocer más sobre este caso.</p>
+          <div class="portfolio-tags">
+            <span class="portfolio-tag" data-i18n="portfolio.catOtros">Otros</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- METALES KAPLAN -->
+      <div class="portfolio-card" data-project="kaplan" tabindex="0" role="button" aria-haspopup="dialog">
+        <div class="portfolio-media portfolio-media-logo">
+          <img src="logo-clientes/Logo-Kaplan.jpg" alt="Metales Kaplan" data-i18n-alt="portfolio.p6Alt" loading="lazy" />
+          <span class="portfolio-expand-badge" data-portfolio-badge></span>
+        </div>
+        <div class="portfolio-body">
+          <h3>Metales Kaplan</h3>
+          <p data-i18n="portfolio.p6Desc">Uno de los proyectos que desarrollé para Metales Kaplan. Escribime si querés conocer más sobre este caso.</p>
+          <div class="portfolio-tags">
+            <span class="portfolio-tag" data-i18n="portfolio.catIndustria">Industria</span>
+          </div>
+        </div>
+      </div>
+      </div>
+      <button type="button" class="portfolio-carousel-nav next" id="portfolio-featured-next" aria-label="Next">›</button>
+    </div>
+
+    <div class="portfolio-all-toggle-row" id="portfolio-all">
+      <button type="button" class="portfolio-all-toggle" id="portfolio-all-toggle" aria-expanded="false">
+        <span id="portfolio-all-toggle-label" data-i18n="portfolio.seeAllBtn">Ver todos los proyectos</span>
+        <span class="portfolio-all-toggle-arrow" aria-hidden="true">↓</span>
+      </button>
+    </div>
+
+    <div class="portfolio-all-panel" id="portfolio-all-panel" hidden>
+      <div class="portfolio-all-header">
+        <h3 class="portfolio-all-title" data-i18n="portfolio.allTitle">Todos los proyectos</h3>
+        <p class="portfolio-all-sub" data-i18n="portfolio.allSub">Más de 20 proyectos entregados en distintas industrias. Buscá por nombre o filtrá por rubro para ver el detalle de cada uno.</p>
+      </div>
+
+      <div class="portfolio-search-row">
+        <div class="portfolio-search">
+          <span class="portfolio-search-icon">🔍</span>
+          <input type="text" id="portfolio-search-input" data-i18n-placeholder="portfolio.searchPlaceholder" placeholder="Buscar proyecto..." autocomplete="off" />
+        </div>
+        <div class="portfolio-chips" id="portfolio-chips"></div>
+      </div>
+
+      <div class="portfolio-all-grid" id="portfolio-all-grid"></div>
+      <p class="portfolio-all-empty" id="portfolio-all-empty" data-i18n="portfolio.noResults" hidden>No encontré proyectos con ese criterio.</p>
+    </div>
+  </div>
+
+  <!-- MODAL: galería de imágenes por proyecto -->
+  <div class="portfolio-modal" id="portfolio-modal" aria-hidden="true">
+    <div class="portfolio-modal-overlay" id="portfolio-modal-overlay"></div>
+    <div class="portfolio-modal-content" role="dialog" aria-modal="true" aria-labelledby="portfolio-modal-title">
+      <button type="button" class="portfolio-modal-close" id="portfolio-modal-close" aria-label="Close">✕</button>
+      <div class="portfolio-modal-gallery">
+        <button type="button" class="portfolio-modal-nav prev" id="portfolio-modal-prev" aria-label="Previous image">‹</button>
+        <div class="portfolio-modal-image-wrap" id="portfolio-modal-image-wrap"></div>
+        <button type="button" class="portfolio-modal-nav next" id="portfolio-modal-next" aria-label="Next image">›</button>
+      </div>
+      <div class="portfolio-modal-dots" id="portfolio-modal-dots"></div>
+      <div class="portfolio-modal-body">
+        <h3 id="portfolio-modal-title"></h3>
+        <p id="portfolio-modal-desc"></p>
+        <div class="portfolio-tags" id="portfolio-modal-tags"></div>
+        <a id="portfolio-modal-link" class="portfolio-link" target="_blank" rel="noopener"></a>
+        <a id="portfolio-modal-cta" class="portfolio-modal-cta" target="_blank" rel="noopener"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="section-inner">
+    <div class="section-tag" data-i18n="services.tag">Servicios</div>
+    <h2 class="section-title" data-i18n="services.title">¿En qué te puedo ayudar?</h2>
+    <p class="section-sub" data-i18n="services.sub">Diseño y construyo software pensando en el negocio, no solo en el código. Cada proyecto es único y lo trato como tal.</p>
     <div class="services-grid">
       <div class="service-card">
         <div class="service-icon" style="background:rgba(79,142,247,0.12)">📱</div>
-        <h3>Apps Móviles</h3>
-        <p>Aplicaciones nativas o multiplataforma para iOS y Android. Desde el diseño hasta la publicación en las tiendas.</p>
+        <h3 data-i18n="services.s1Title">Apps Móviles</h3>
+        <p data-i18n="services.s1Desc">Aplicaciones nativas o multiplataforma para iOS y Android. Desde el diseño hasta la publicación en las tiendas.</p>
       </div>
       <div class="service-card">
         <div class="service-icon" style="background:rgba(124,58,237,0.12)">🌐</div>
-        <h3>Webs y Aplicaciones Web</h3>
-        <p>Plataformas, dashboards, portales y sistemas web que escalan con tu negocio. Rápidas, seguras y fáciles de usar.</p>
+        <h3 data-i18n="services.s2Title">Webs y Aplicaciones Web</h3>
+        <p data-i18n="services.s2Desc">Plataformas, dashboards, portales y sistemas web que escalan con tu negocio. Rápidas, seguras y fáciles de usar.</p>
       </div>
       <div class="service-card">
         <div class="service-icon" style="background:rgba(37,211,102,0.12)">🚀</div>
-        <h3>SaaS a Medida</h3>
-        <p>Desarrollo de productos SaaS desde cero: arquitectura, backend, frontend y todo lo que necesitás para lanzar y crecer.</p>
+        <h3 data-i18n="services.s3Title">SaaS a Medida</h3>
+        <p data-i18n="services.s3Desc">Desarrollo de productos SaaS desde cero: arquitectura, backend, frontend y todo lo que necesitás para lanzar y crecer.</p>
       </div>
       <div class="service-card">
         <div class="service-icon" style="background:rgba(255,184,0,0.12)">⚙️</div>
-        <h3>Sistemas Internos</h3>
-        <p>Software de gestión, ERP, CRM y herramientas internas que automatizan procesos y ahorran tiempo a tu equipo.</p>
+        <h3 data-i18n="services.s4Title">Sistemas Internos</h3>
+        <p data-i18n="services.s4Desc">Software de gestión, ERP, CRM y herramientas internas que automatizan procesos y ahorran tiempo a tu equipo.</p>
       </div>
       <div class="service-card">
         <div class="service-icon" style="background:rgba(247,79,79,0.12)">🔗</div>
-        <h3>Proyectos Blockchain</h3>
-        <p>Smart contracts, DeFi, NFTs y aplicaciones Web3. Experiencia real en ecosistemas EVM y proyectos crypto productivos.</p>
+        <h3 data-i18n="services.s5Title">Proyectos Blockchain</h3>
+        <p data-i18n="services.s5Desc">Smart contracts, DeFi, NFTs y aplicaciones Web3. Experiencia real en ecosistemas EVM y proyectos crypto productivos.</p>
       </div>
       <div class="service-card">
         <div class="service-icon" style="background:rgba(0,212,255,0.12)">🤖</div>
-        <h3>Automatizaciones e IA</h3>
-        <p>Integraciones, bots y flujos automáticos con IA. Eliminamos tareas repetitivas para que te enfoques en lo importante.</p>
+        <h3 data-i18n="services.s6Title">Automatizaciones e IA</h3>
+        <p data-i18n="services.s6Desc">Integraciones, bots y flujos automáticos con IA. Eliminamos tareas repetitivas para que te enfoques en lo importante.</p>
       </div>
     </div>
   </div>
@@ -585,29 +1070,29 @@
 <!-- PROCESO -->
 <section id="proceso">
   <div class="section-inner">
-    <div class="section-tag">Proceso</div>
-    <h2 class="section-title">Así trabajamos juntos</h2>
-    <p class="section-sub">Sin burocracia ni reuniones infinitas. Simple, directo y con foco en resultados.</p>
+    <div class="section-tag" data-i18n="process.tag">Proceso</div>
+    <h2 class="section-title" data-i18n="process.title">Así trabajamos juntos</h2>
+    <p class="section-sub" data-i18n="process.sub">Sin burocracia ni reuniones infinitas. Simple, directo y con foco en resultados.</p>
     <div class="steps-grid">
       <div class="step">
         <div class="step-num">1</div>
-        <h3>Me escribís por WhatsApp</h3>
-        <p>Contame tu idea o el problema que querés resolver. Sin formularios ni esperas.</p>
+        <h3 data-i18n="process.st1Title">Me escribís</h3>
+        <p data-i18n="process.st1Desc">Contame tu idea o el problema que querés resolver, por WhatsApp o por el formulario de contacto.</p>
       </div>
       <div class="step">
         <div class="step-num">2</div>
-        <h3>Entendemos el proyecto</h3>
-        <p>Una charla para entender bien qué necesitás y definir el alcance juntos.</p>
+        <h3 data-i18n="process.st2Title">Entendemos el proyecto</h3>
+        <p data-i18n="process.st2Desc">Una charla para entender bien qué necesitás y definir el alcance juntos.</p>
       </div>
       <div class="step">
         <div class="step-num">3</div>
-        <h3>Te presento una propuesta</h3>
-        <p>Tiempo estimado, costo y plan de trabajo. Claro y sin sorpresas.</p>
+        <h3 data-i18n="process.st3Title">Te presento una propuesta</h3>
+        <p data-i18n="process.st3Desc">Tiempo estimado, costo y plan de trabajo. Claro y sin sorpresas.</p>
       </div>
       <div class="step">
         <div class="step-num">4</div>
-        <h3>Empezamos a construir</h3>
-        <p>Trabajo con actualizaciones constantes para que siempre sepas cómo avanza tu proyecto.</p>
+        <h3 data-i18n="process.st4Title">Empezamos a construir</h3>
+        <p data-i18n="process.st4Desc">Trabajo con actualizaciones constantes para que siempre sepas cómo avanza tu proyecto.</p>
       </div>
     </div>
   </div>
@@ -618,11 +1103,11 @@
   <div class="section-inner">
     <div class="about-grid">
       <div class="about-text">
-        <div class="section-tag">Sobre mí</div>
-        <h2 class="section-title">Un dev que entiende tu negocio</h2>
-        <p>Soy Damian Guilisasti, software engineer con más de 7 años construyendo productos digitales para startups, empresas y emprendedores de distintos países.</p>
-        <p>Me especialicé en convertir ideas en software real y funcional. No solo escribo código: analizo el problema, propongo soluciones y acompaño cada etapa del proyecto.</p>
-        <p>Trabajo de forma directa con mis clientes, sin agencias ni intermediarios. Eso garantiza mejor comunicación, más agilidad y mejores resultados.</p>
+        <div class="section-tag" data-i18n="about.tag">Sobre mí</div>
+        <h2 class="section-title" data-i18n="about.title">Un dev que entiende tu negocio</h2>
+        <p data-i18n="about.p1">Soy Damian Guilisasti, software engineer con más de 7 años construyendo productos digitales para startups, empresas y emprendedores de distintos países.</p>
+        <p data-i18n="about.p2">Me especialicé en convertir ideas en software real y funcional. No solo escribo código: analizo el problema, propongo soluciones y acompaño cada etapa del proyecto.</p>
+        <p data-i18n="about.p3">Trabajo de forma directa con mis clientes, sin agencias ni intermediarios. Eso garantiza mejor comunicación, más agilidad y mejores resultados.</p>
         <div class="skills-tags">
           <span class="tag">React / React Native</span>
           <span class="tag">Node.js</span>
@@ -642,29 +1127,29 @@
         <div class="highlight-item">
           <div class="highlight-icon">💬</div>
           <div>
-            <h4>Comunicación directa</h4>
-            <p>Trabajás conmigo directamente, no con un equipo anónimo. Siempre sabés quién hace tu proyecto.</p>
+            <h4 data-i18n="about.h1Title">Comunicación directa</h4>
+            <p data-i18n="about.h1Desc">Trabajás conmigo directamente, no con un equipo anónimo. Siempre sabés quién hace tu proyecto.</p>
           </div>
         </div>
         <div class="highlight-item">
           <div class="highlight-icon">⚡</div>
           <div>
-            <h4>Entrega rápida</h4>
-            <p>Priorizo la velocidad sin sacrificar calidad. MVPs listos para validar tu idea rápidamente.</p>
+            <h4 data-i18n="about.h2Title">Entrega rápida</h4>
+            <p data-i18n="about.h2Desc">Priorizo la velocidad sin sacrificar calidad. MVPs listos para validar tu idea rápidamente.</p>
           </div>
         </div>
         <div class="highlight-item">
           <div class="highlight-icon">🔒</div>
           <div>
-            <h4>Código de calidad</h4>
-            <p>Software mantenible, escalable y bien documentado. Tu inversión dura en el tiempo.</p>
+            <h4 data-i18n="about.h3Title">Código de calidad</h4>
+            <p data-i18n="about.h3Desc">Software mantenible, escalable y bien documentado. Tu inversión dura en el tiempo.</p>
           </div>
         </div>
         <div class="highlight-item">
           <div class="highlight-icon">🌍</div>
           <div>
-            <h4>Experiencia internacional</h4>
-            <p>Proyectos en múltiples países y sectores. Experiencia real con diferentes mercados.</p>
+            <h4 data-i18n="about.h4Title">Experiencia internacional</h4>
+            <p data-i18n="about.h4Desc">Proyectos en múltiples países y sectores. Experiencia real con diferentes mercados.</p>
           </div>
         </div>
       </div>
@@ -672,16 +1157,45 @@
   </div>
 </section>
 
-<!-- CTA FINAL -->
-<section>
+<!-- CONTACTO -->
+<section id="contacto">
   <div class="section-inner">
     <div class="cta-banner">
-      <h2>¿Tenés una idea en mente?<br><span class="gradient-text">Hablemos hoy.</span></h2>
-      <p>Sin compromisos. Una conversación de 15 minutos puede ser el primer paso de tu próximo proyecto.</p>
-      <a href="https://wa.me/5493413354475?text=Hola%20Damian%2C%20vi%20tu%20p%C3%A1gina%20y%20me%20interesa%20hablar%20sobre%20un%20proyecto" target="_blank" class="btn-wa">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Escribime por WhatsApp
-      </a>
+      <div class="cta-header">
+        <div class="section-tag" style="justify-content:center;display:flex" data-i18n="contact.tag">Contacto</div>
+        <h2 data-i18n="contact.title">¿Hablamos de tu proyecto?</h2>
+        <p data-i18n="contact.sub">Contame sobre tu proyecto y te respondo en menos de 24hs.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3 data-i18n="contact.formCardTitle">¿Hablamos?</h3>
+          <p data-i18n="contact.formCardDesc">Completá el formulario con los detalles de tu proyecto.</p>
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-group">
+              <label for="cf-name" data-i18n="contact.labelName">Nombre</label>
+              <input type="text" id="cf-name" name="name" autocomplete="name" required data-i18n-placeholder="contact.placeholderName" placeholder="Tu nombre" />
+            </div>
+            <div class="form-group">
+              <label for="cf-email" data-i18n="contact.labelEmail">Email</label>
+              <input type="email" id="cf-email" name="email" autocomplete="email" required data-i18n-placeholder="contact.placeholderEmail" placeholder="tu@email.com" />
+            </div>
+            <div class="form-group">
+              <label for="cf-message" data-i18n="contact.labelMessage">Mensaje</label>
+              <textarea id="cf-message" name="message" rows="3" required data-i18n-placeholder="contact.placeholderMessage" placeholder="Contame sobre tu proyecto..."></textarea>
+            </div>
+            <!-- Honeypot anti-spam: los bots suelen completar este campo, los humanos no lo ven -->
+            <div class="form-honeypot" aria-hidden="true">
+              <label for="cf-company">Company</label>
+              <input type="text" id="cf-company" name="_hp" tabindex="-1" autocomplete="off" />
+            </div>
+            <button type="submit" class="btn-submit" id="cf-submit">
+              <span data-i18n="contact.submitBtn">Enviar mensaje</span>
+            </button>
+            <div class="form-status" id="cf-status" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -689,6 +1203,795 @@
 <footer>
   <p>© 2026 Damian Guilisasti · Software Engineer</p>
 </footer>
+
+<script>
+  /* ======================================================================
+     TRADUCCIÓN ES / EN
+     Todo el texto vive acá. Para editar una frase, buscá su clave
+     (ej: "hero.desc") tanto en es{} como en en{} y cambiá el valor.
+     ====================================================================== */
+  const I18N = {
+    es: {
+      "meta.title": "Damian Guilisasti · Software Engineer",
+      "meta.description": "Software a medida con más de 7 años de experiencia. Apps móviles, web, SaaS y proyectos blockchain. Hablemos por WhatsApp.",
+      "nav.cta": "Hablemos",
+      "hero.title": 'Software que<br>tu negocio<br><span class="gradient-text">necesita</span>',
+      "hero.desc": "Soy Damian, software engineer con más de 7 años de experiencia construyendo productos digitales reales. Trabajo directamente con vos, sin intermediarios, para convertir tu idea en una solución que funciona.",
+      "hero.btnPrimary": "Escribime por WhatsApp",
+      "hero.btnSecondary": "Ver qué hago →",
+      "hero.statYears": "años de experiencia",
+      "hero.statProjects": "proyectos entregados",
+      "hero.statCustom": "a medida",
+      "hero.expBadge": "años",
+      "hero.photoAlt": "Damian Guilisasti · Software Engineer",
+      "clients.tag": "Clientes",
+      "clients.title": "Empresas que confían en mi trabajo",
+      "clients.sub": "Algunas de las marcas y proyectos con los que tuve el gusto de colaborar a lo largo de estos años.",
+      "portfolio.tag": "Portfolio",
+      "portfolio.title": "Proyectos que hablan por sí solos",
+      "portfolio.sub": "Una selección de trabajos reales, con clientes reales — así trabajo de principio a fin.",
+      "portfolio.p2Alt": "Retok — e-commerce de productos para motos, con reunión de proyecto",
+      "portfolio.p2Desc": "Tienda online para venta de productos de cuidado y accesorios para motos, con catálogo, carrito y contacto directo por WhatsApp para cerrar más ventas.",
+      "portfolio.p3Alt": "HyAR — ingeniería en refrigeración industrial, con reunión de proyecto",
+      "portfolio.p3Desc": "Sitio institucional para una empresa de ingeniería en refrigeración industrial y comercial, enfocado en generar consultas con un diagnóstico sin cargo.",
+      "portfolio.p3Tag2": "Ingeniería",
+      "portfolio.p4Alt": "9H Detail Store",
+      "portfolio.p4Desc": "Uno de los proyectos que desarrollé para 9H Detail Store. Escribime si querés conocer más sobre este caso.",
+      "portfolio.p5Alt": "Compañía DAB",
+      "portfolio.p5Desc": "Uno de los proyectos que desarrollé para Compañía DAB. Escribime si querés conocer más sobre este caso.",
+      "portfolio.p6Alt": "Metales Kaplan",
+      "portfolio.p6Desc": "Uno de los proyectos que desarrollé para Metales Kaplan. Escribime si querés conocer más sobre este caso.",
+      "portfolio.caption": "Reunión real con el cliente",
+      "portfolio.linkLabel": "Ver sitio →",
+      "portfolio.viewGallery": "Ver galería →",
+      "portfolio.viewDetail": "Ver detalle →",
+      "portfolio.allTitle": "Todos los proyectos",
+      "portfolio.allSub": "Más de 20 proyectos entregados en distintas industrias. Buscá por nombre o filtrá por rubro para ver el detalle de cada uno.",
+      "portfolio.searchPlaceholder": "Buscar proyecto...",
+      "portfolio.noResults": "No encontré proyectos con ese criterio.",
+      "portfolio.chipAll": "Todos",
+      "portfolio.catSoftware": "Software",
+      "portfolio.catEcommerce": "E-commerce",
+      "portfolio.catIndustria": "Industria",
+      "portfolio.catAlimentos": "Alimentos",
+      "portfolio.catServicios": "Servicios",
+      "portfolio.catOtros": "Otros",
+      "portfolio.genericDesc": "Uno de los proyectos que desarrollé para {name}. ¿Querés conocer más detalles de este caso?",
+      "portfolio.ctaBtn": "Preguntame por este proyecto",
+      "portfolio.ctaMessage": "Hola Damian, vi en tu página el proyecto de {name} y me gustaría saber más",
+      "portfolio.seeAllBtn": "Ver todos los proyectos",
+      "portfolio.hideAllBtn": "Ocultar proyectos",
+      "services.tag": "Servicios",
+      "services.title": "¿En qué te puedo ayudar?",
+      "services.sub": "Diseño y construyo software pensando en el negocio, no solo en el código. Cada proyecto es único y lo trato como tal.",
+      "services.s1Title": "Apps Móviles",
+      "services.s1Desc": "Aplicaciones nativas o multiplataforma para iOS y Android. Desde el diseño hasta la publicación en las tiendas.",
+      "services.s2Title": "Webs y Aplicaciones Web",
+      "services.s2Desc": "Plataformas, dashboards, portales y sistemas web que escalan con tu negocio. Rápidas, seguras y fáciles de usar.",
+      "services.s3Title": "SaaS a Medida",
+      "services.s3Desc": "Desarrollo de productos SaaS desde cero: arquitectura, backend, frontend y todo lo que necesitás para lanzar y crecer.",
+      "services.s4Title": "Sistemas Internos",
+      "services.s4Desc": "Software de gestión, ERP, CRM y herramientas internas que automatizan procesos y ahorran tiempo a tu equipo.",
+      "services.s5Title": "Proyectos Blockchain",
+      "services.s5Desc": "Smart contracts, DeFi, NFTs y aplicaciones Web3. Experiencia real en ecosistemas EVM y proyectos crypto productivos.",
+      "services.s6Title": "Automatizaciones e IA",
+      "services.s6Desc": "Integraciones, bots y flujos automáticos con IA. Eliminamos tareas repetitivas para que te enfoques en lo importante.",
+      "process.tag": "Proceso",
+      "process.title": "Así trabajamos juntos",
+      "process.sub": "Sin burocracia ni reuniones infinitas. Simple, directo y con foco en resultados.",
+      "process.st1Title": "Me escribís",
+      "process.st1Desc": "Contame tu idea o el problema que querés resolver, por WhatsApp o por el formulario de contacto.",
+      "process.st2Title": "Entendemos el proyecto",
+      "process.st2Desc": "Una charla para entender bien qué necesitás y definir el alcance juntos.",
+      "process.st3Title": "Te presento una propuesta",
+      "process.st3Desc": "Tiempo estimado, costo y plan de trabajo. Claro y sin sorpresas.",
+      "process.st4Title": "Empezamos a construir",
+      "process.st4Desc": "Trabajo con actualizaciones constantes para que siempre sepas cómo avanza tu proyecto.",
+      "about.tag": "Sobre mí",
+      "about.title": "Un dev que entiende tu negocio",
+      "about.p1": "Soy Damian Guilisasti, software engineer con más de 7 años construyendo productos digitales para startups, empresas y emprendedores de distintos países.",
+      "about.p2": "Me especialicé en convertir ideas en software real y funcional. No solo escribo código: analizo el problema, propongo soluciones y acompaño cada etapa del proyecto.",
+      "about.p3": "Trabajo de forma directa con mis clientes, sin agencias ni intermediarios. Eso garantiza mejor comunicación, más agilidad y mejores resultados.",
+      "about.h1Title": "Comunicación directa",
+      "about.h1Desc": "Trabajás conmigo directamente, no con un equipo anónimo. Siempre sabés quién hace tu proyecto.",
+      "about.h2Title": "Entrega rápida",
+      "about.h2Desc": "Priorizo la velocidad sin sacrificar calidad. MVPs listos para validar tu idea rápidamente.",
+      "about.h3Title": "Código de calidad",
+      "about.h3Desc": "Software mantenible, escalable y bien documentado. Tu inversión dura en el tiempo.",
+      "about.h4Title": "Experiencia internacional",
+      "about.h4Desc": "Proyectos en múltiples países y sectores. Experiencia real con diferentes mercados.",
+      "contact.tag": "Contacto",
+      "contact.title": "¿Hablamos de tu proyecto?",
+      "contact.sub": "Contame sobre tu proyecto y te respondo en menos de 24hs.",
+      "contact.formCardTitle": "¿Hablamos?",
+      "contact.formCardDesc": "Completá el formulario con los detalles de tu proyecto.",
+      "contact.labelName": "Nombre",
+      "contact.labelEmail": "Email",
+      "contact.labelMessage": "Mensaje",
+      "contact.placeholderName": "Tu nombre",
+      "contact.placeholderEmail": "tu@email.com",
+      "contact.placeholderMessage": "Contame sobre tu proyecto...",
+      "contact.submitBtn": "Enviar mensaje",
+      "contact.submitBtnSending": "Enviando...",
+      "contact.statusSuccess": "¡Listo! Te voy a responder a la brevedad.",
+      "contact.statusError": "Algo salió mal. Probá de nuevo o escribime por WhatsApp.",
+      "contact.statusInvalid": "Revisá los campos, falta completar algo.",
+      "wa.message": "Hola Damian, vi tu página y me interesa hablar sobre un proyecto"
+    },
+    en: {
+      "meta.title": "Damian Guilisasti · Software Engineer",
+      "meta.description": "Custom software with 7+ years of experience. Mobile apps, web, SaaS and blockchain projects. Let's talk — WhatsApp or email.",
+      "nav.cta": "Let's talk",
+      "hero.title": 'Software your<br>business<br><span class="gradient-text">actually needs</span>',
+      "hero.desc": "I'm Damian, a software engineer with 7+ years of experience building real digital products. I work directly with you, no middlemen, turning your idea into a solution that actually works.",
+      "hero.btnPrimary": "Message me on WhatsApp",
+      "hero.btnSecondary": "See what I do →",
+      "hero.statYears": "years of experience",
+      "hero.statProjects": "projects delivered",
+      "hero.statCustom": "custom-built",
+      "hero.expBadge": "years",
+      "hero.photoAlt": "Damian Guilisasti · Software Engineer",
+      "clients.tag": "Clients",
+      "clients.title": "Companies that trust my work",
+      "clients.sub": "Some of the brands and projects I've had the pleasure of working with over the years.",
+      "portfolio.tag": "Portfolio",
+      "portfolio.title": "Projects that speak for themselves",
+      "portfolio.sub": "A selection of real projects, with real clients — this is how I work from start to finish.",
+      "portfolio.p2Alt": "Retok — motorcycle care e-commerce, with a project call",
+      "portfolio.p2Desc": "Online store for motorcycle care products and accessories, with a catalog, cart and direct WhatsApp contact to close more sales.",
+      "portfolio.p3Alt": "HyAR — industrial refrigeration engineering, with a project call",
+      "portfolio.p3Desc": "Corporate site for an industrial & commercial refrigeration engineering company, built to generate leads with a free diagnostic offer.",
+      "portfolio.p3Tag2": "Engineering",
+      "portfolio.p4Alt": "9H Detail Store",
+      "portfolio.p4Desc": "One of the projects I built for 9H Detail Store. Reach out if you'd like to know more about this case.",
+      "portfolio.p5Alt": "Compañía DAB",
+      "portfolio.p5Desc": "One of the projects I built for Compañía DAB. Reach out if you'd like to know more about this case.",
+      "portfolio.p6Alt": "Metales Kaplan",
+      "portfolio.p6Desc": "One of the projects I built for Metales Kaplan. Reach out if you'd like to know more about this case.",
+      "portfolio.caption": "Real client call",
+      "portfolio.linkLabel": "Visit site →",
+      "portfolio.viewGallery": "View gallery →",
+      "portfolio.viewDetail": "View details →",
+      "portfolio.allTitle": "All projects",
+      "portfolio.allSub": "20+ projects delivered across different industries. Search by name or filter by category to see each one.",
+      "portfolio.searchPlaceholder": "Search a project...",
+      "portfolio.noResults": "No projects match that search.",
+      "portfolio.chipAll": "All",
+      "portfolio.catSoftware": "Software",
+      "portfolio.catEcommerce": "E-commerce",
+      "portfolio.catIndustria": "Industry",
+      "portfolio.catAlimentos": "Food",
+      "portfolio.catServicios": "Services",
+      "portfolio.catOtros": "Other",
+      "portfolio.genericDesc": "One of the projects I built for {name}. Want to know more about this case?",
+      "portfolio.ctaBtn": "Ask me about this project",
+      "portfolio.ctaMessage": "Hi Damian, I saw the {name} project on your site and I'd like to know more",
+      "portfolio.seeAllBtn": "See all projects",
+      "portfolio.hideAllBtn": "Hide projects",
+      "services.tag": "Services",
+      "services.title": "How can I help you?",
+      "services.sub": "I design and build software with the business in mind, not just the code. Every project is unique and I treat it that way.",
+      "services.s1Title": "Mobile Apps",
+      "services.s1Desc": "Native or cross-platform apps for iOS and Android. From design all the way to publishing on the app stores.",
+      "services.s2Title": "Websites & Web Apps",
+      "services.s2Desc": "Platforms, dashboards, portals and web systems that scale with your business. Fast, secure and easy to use.",
+      "services.s3Title": "Custom SaaS",
+      "services.s3Desc": "SaaS products built from scratch: architecture, backend, frontend and everything you need to launch and grow.",
+      "services.s4Title": "Internal Systems",
+      "services.s4Desc": "Management software, ERP, CRM and internal tools that automate processes and save your team time.",
+      "services.s5Title": "Blockchain Projects",
+      "services.s5Desc": "Smart contracts, DeFi, NFTs and Web3 apps. Real experience with EVM ecosystems and production crypto projects.",
+      "services.s6Title": "Automation & AI",
+      "services.s6Desc": "Integrations, bots and AI-driven workflows. We remove repetitive tasks so you can focus on what matters.",
+      "process.tag": "Process",
+      "process.title": "Here's how we'll work together",
+      "process.sub": "No red tape, no endless meetings. Simple, direct and focused on results.",
+      "process.st1Title": "You reach out",
+      "process.st1Desc": "Tell me your idea or the problem you want to solve — via WhatsApp or the contact form below.",
+      "process.st2Title": "We scope the project",
+      "process.st2Desc": "A conversation to fully understand what you need and define the scope together.",
+      "process.st3Title": "I send you a proposal",
+      "process.st3Desc": "Timeline, cost and work plan. Clear, with no surprises.",
+      "process.st4Title": "We start building",
+      "process.st4Desc": "I work with constant updates so you always know how your project is progressing.",
+      "about.tag": "About me",
+      "about.title": "A developer who understands your business",
+      "about.p1": "I'm Damian Guilisasti, a software engineer with 7+ years building digital products for startups, companies and entrepreneurs across different countries.",
+      "about.p2": "I specialize in turning ideas into real, working software. I don't just write code: I analyze the problem, propose solutions and stay involved through every stage of the project.",
+      "about.p3": "I work directly with my clients, no agencies or middlemen. That means better communication, more agility and better results.",
+      "about.h1Title": "Direct communication",
+      "about.h1Desc": "You work with me directly, not an anonymous team. You always know who's building your project.",
+      "about.h2Title": "Fast delivery",
+      "about.h2Desc": "I prioritize speed without sacrificing quality. MVPs ready to validate your idea fast.",
+      "about.h3Title": "Quality code",
+      "about.h3Desc": "Maintainable, scalable and well-documented software. Your investment lasts over time.",
+      "about.h4Title": "International experience",
+      "about.h4Desc": "Projects across multiple countries and industries. Real experience with different markets.",
+      "contact.tag": "Contact",
+      "contact.title": "Let's talk about your project",
+      "contact.sub": "Tell me about your project and I'll get back to you within 24 hours.",
+      "contact.formCardTitle": "Let's talk",
+      "contact.formCardDesc": "Fill out the form with your project details.",
+      "contact.labelName": "Name",
+      "contact.labelEmail": "Email",
+      "contact.labelMessage": "Message",
+      "contact.placeholderName": "Your name",
+      "contact.placeholderEmail": "you@email.com",
+      "contact.placeholderMessage": "Tell me about your project...",
+      "contact.submitBtn": "Send message",
+      "contact.submitBtnSending": "Sending...",
+      "contact.statusSuccess": "Done! I'll get back to you shortly.",
+      "contact.statusError": "Something went wrong. Try again or message me on WhatsApp.",
+      "contact.statusInvalid": "Please check the form, something's missing.",
+      "wa.message": "Hi Damian, I saw your website and I'd like to talk about a project"
+    }
+  };
+
+  const WA_PHONE = "5493413354475";
+  const LANG_STORAGE_KEY = "dg-site-lang";
+
+  function detectInitialLang() {
+    const stored = localStorage.getItem(LANG_STORAGE_KEY);
+    if (stored === "es" || stored === "en") return stored;
+    const nav = (navigator.language || "es").toLowerCase();
+    return nav.startsWith("es") ? "es" : "en";
+  }
+
+  function t(lang, key) {
+    return (I18N[lang] && I18N[lang][key] !== undefined) ? I18N[lang][key] : I18N.es[key];
+  }
+
+  function applyLanguage(lang) {
+    document.documentElement.lang = lang;
+
+    document.title = t(lang, "meta.title");
+    const metaDesc = document.getElementById("meta-description");
+    if (metaDesc) metaDesc.setAttribute("content", t(lang, "meta.description"));
+
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      el.innerHTML = t(lang, key);
+    });
+    document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
+      el.setAttribute("alt", t(lang, el.getAttribute("data-i18n-alt")));
+    });
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+      el.setAttribute("placeholder", t(lang, el.getAttribute("data-i18n-placeholder")));
+    });
+
+    const waMsg = encodeURIComponent(t(lang, "wa.message"));
+    document.querySelectorAll(".wa-link").forEach((a) => {
+      a.href = "https://wa.me/" + WA_PHONE + "?text=" + waMsg;
+    });
+
+    const toggleLabel = document.getElementById("lang-toggle-label");
+    if (toggleLabel) toggleLabel.textContent = lang === "es" ? "EN" : "ES";
+    const toggleBtn = document.getElementById("lang-toggle");
+    if (toggleBtn) toggleBtn.setAttribute("aria-label", lang === "es" ? "Switch to English" : "Cambiar a español");
+
+    localStorage.setItem(LANG_STORAGE_KEY, lang);
+    window.__dgLang = lang;
+
+    if (window.__refreshPortfolioBadges) window.__refreshPortfolioBadges(lang);
+    if (window.__closePortfolioModal) window.__closePortfolioModal();
+    if (window.__renderPortfolioAll) window.__renderPortfolioAll(lang);
+  }
+
+  (function initLang() {
+    const initial = detectInitialLang();
+    applyLanguage(initial);
+
+    const toggleBtn = document.getElementById("lang-toggle");
+    if (toggleBtn) {
+      toggleBtn.addEventListener("click", () => {
+        const current = window.__dgLang === "en" ? "en" : "es";
+        applyLanguage(current === "es" ? "en" : "es");
+      });
+    }
+  })();
+
+  /* ======================================================================
+     PORTFOLIO — galería de imágenes por proyecto
+     Para sumar más fotos a un proyecto, agregá el archivo a porfolio/
+     (o capturas/) y sumá una línea al array correspondiente acá abajo.
+     "frame: true" dibuja el marco de navegador (para capturas de sitios
+     en vivo); "frame: false" muestra la imagen tal cual (mockups, fotos).
+     ====================================================================== */
+  const PROJECT_IMAGES = {
+    retok: [
+      { src: "porfolio/retok-01.jpg", frame: true, url: "retokdetailshop.com.ar" },
+      { src: "porfolio/retok-02.jpg", frame: true, url: "retokdetailshop.com.ar" },
+      { src: "capturas/Captura de pantalla 2026-06-11 153646.png", frame: false, captionKey: "portfolio.caption" }
+    ],
+    hyar: [
+      { src: "porfolio/hyar-01.jpg", frame: true, url: "hyar.com.ar" },
+      { src: "porfolio/hyar-02.jpg", frame: true, url: "hyar.com.ar" },
+      { src: "capturas/Captura de pantalla 2026-06-17 110446.png", frame: false, captionKey: "portfolio.caption" }
+    ],
+    "9h": [
+      { kind: "logo", src: "logo-clientes/IMG_0916.png", initials: "9H" }
+    ],
+    dab: [
+      { kind: "logo", src: "logo-clientes/Logo-Compañia-DAB.png", initials: "DAB" }
+    ],
+    kaplan: [
+      { kind: "logo", src: "logo-clientes/Logo-Kaplan.jpg", initials: "MK" }
+    ]
+  };
+
+  /* ======================================================================
+     PORTFOLIO — listado completo (buscador + filtro por rubro)
+     Para sumar un proyecto nuevo: agregá el logo a logo-clientes/ (o dejá
+     "logo: null" si todavía no tenés uno) y sumá una línea al array de
+     abajo. Las categorías son una clasificación orientativa por rubro —
+     si alguna está mal, avisame y la corrijo.
+     ====================================================================== */
+  const CATEGORY_KEYS = {
+    software: "portfolio.catSoftware",
+    ecommerce: "portfolio.catEcommerce",
+    industria: "portfolio.catIndustria",
+    alimentos: "portfolio.catAlimentos",
+    servicios: "portfolio.catServicios",
+    otros: "portfolio.catOtros"
+  };
+
+  const ALL_PROJECTS = [
+    { id: "tokn", name: "Tokn", logo: "logo-clientes/Logo-new-color2.png", category: "software" },
+    { id: "retok", name: "Retok", logo: "logo-clientes/cropped-Logo-Retok-1.png", category: "ecommerce", featured: true },
+    { id: "hyar", name: "HyAR", logo: null, category: "industria", featured: true },
+    { id: "kaplan", name: "Metales Kaplan", logo: "logo-clientes/Logo-Kaplan.jpg", category: "industria", featured: true },
+    { id: "dab", name: "Compañía DAB", logo: "logo-clientes/Logo-Compañia-DAB.png", category: "otros", featured: true },
+    { id: "constructora1", name: "Constructora1", logo: "logo-clientes/o5cigpiz9gmqueldpxza.png", category: "industria" },
+    { id: "bustamante", name: "Bustamante", logo: "logo-clientes/logo.png", category: "industria" },
+    { id: "cooking", name: "Cooking", logo: "logo-clientes/cooking-gg.png", category: "alimentos" },
+    { id: "bcp", name: "Build Check Pro", logo: "logo-clientes/build check pro.png", category: "servicios" },
+    { id: "9h", name: "9H Detail Store", logo: "logo-clientes/IMG_0916.png", category: "servicios", featured: true },
+    { id: "wilk", name: "Wilk Maderas", logo: "logo-clientes/LOGO-WILK-RECTANGULO-TRANSPARENTE.png", category: "industria" },
+    { id: "fumisol", name: "Fumisol", logo: "logo-clientes/logo-1.png", category: "servicios" },
+    { id: "office", name: "Office Positivo", logo: "logo-clientes/office_positivo.png", category: "otros" },
+    { id: "grupoa2", name: "GrupoA2 Rosario", logo: "logo-clientes/logo_ga2_ros_a.png", category: "industria" },
+    { id: "billete", name: "Billete", logo: "logo-clientes/billete.png", category: "software" },
+    { id: "pedimeya", name: "PedimeYa", logo: "logo-clientes/pedimeya.png", category: "software" },
+    { id: "reservameya", name: "ReservameYa", logo: null, category: "software" },
+    { id: "nexplace", name: "Nexplace", logo: "logo-clientes/nexplace.png", category: "software" },
+    { id: "byo", name: "Byo Alimentos", logo: "logo-clientes/Logo-ByoAlimentos.png", category: "alimentos" },
+    { id: "cda", name: "CDA", logo: "logo-clientes/Logo-CDA.png", category: "otros" },
+    { id: "market247", name: "Market 247", logo: "logo-clientes/Logo-Market247.png", category: "ecommerce" },
+    { id: "espejo", name: "Espejo Mallorquín", logo: "logo-clientes/Logo-Espejo-Mallorquin.png", category: "otros" },
+    { id: "farmacia", name: "Farmacia Petrirena", logo: "logo-clientes/68336973-22a3-4f2e-99e2-78920b1d94d2.png", category: "servicios" }
+  ];
+
+  (function initPortfolio() {
+    const cards = document.querySelectorAll(".portfolio-card[data-project]");
+    if (!cards.length) return;
+
+    function refreshBadges(lang) {
+      cards.forEach((card) => {
+        const id = card.getAttribute("data-project");
+        const images = PROJECT_IMAGES[id] || [];
+        const badge = card.querySelector("[data-portfolio-badge]");
+        if (!badge) return;
+        badge.textContent = t(lang, images.length > 1 ? "portfolio.viewGallery" : "portfolio.viewDetail");
+      });
+    }
+    window.__refreshPortfolioBadges = refreshBadges;
+    refreshBadges(window.__dgLang || "es");
+
+    const modal = document.getElementById("portfolio-modal");
+    const imageWrap = document.getElementById("portfolio-modal-image-wrap");
+    const dotsWrap = document.getElementById("portfolio-modal-dots");
+    const prevBtn = document.getElementById("portfolio-modal-prev");
+    const nextBtn = document.getElementById("portfolio-modal-next");
+    const closeBtn = document.getElementById("portfolio-modal-close");
+    const overlay = document.getElementById("portfolio-modal-overlay");
+    const titleEl = document.getElementById("portfolio-modal-title");
+    const descEl = document.getElementById("portfolio-modal-desc");
+    const tagsEl = document.getElementById("portfolio-modal-tags");
+    const linkEl = document.getElementById("portfolio-modal-link");
+    const ctaEl = document.getElementById("portfolio-modal-cta");
+
+    let currentImages = [];
+    let currentIndex = 0;
+    let lastFocused = null;
+
+    function initials(name) {
+      return name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0].toUpperCase()).join("");
+    }
+
+    function renderImage() {
+      const lang = window.__dgLang === "en" ? "en" : "es";
+      const item = currentImages[currentIndex];
+      imageWrap.innerHTML = "";
+      if (!item) return;
+
+      if (item.kind === "logo") {
+        const wrap = document.createElement("div");
+        wrap.className = "logo-shot";
+        if (item.src) {
+          const img = document.createElement("img");
+          img.src = item.src;
+          img.alt = titleEl.textContent || "";
+          wrap.appendChild(img);
+        } else {
+          const fb = document.createElement("div");
+          fb.className = "logo-shot-fallback";
+          fb.textContent = item.initials || "";
+          wrap.appendChild(fb);
+        }
+        imageWrap.appendChild(wrap);
+      } else if (item.frame) {
+        const frame = document.createElement("div");
+        frame.className = "browser-mockup";
+        const bar = document.createElement("div");
+        bar.className = "browser-mockup-bar";
+        bar.innerHTML = '<span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="browser-mockup-url"></span>';
+        bar.querySelector(".browser-mockup-url").textContent = item.url || "";
+        const img = document.createElement("img");
+        img.src = item.src;
+        img.alt = titleEl.textContent || "";
+        frame.appendChild(bar);
+        frame.appendChild(img);
+        imageWrap.appendChild(frame);
+      } else {
+        const wrap = document.createElement("div");
+        wrap.className = "plain-shot";
+        const img = document.createElement("img");
+        img.src = item.src;
+        img.alt = titleEl.textContent || "";
+        wrap.appendChild(img);
+        if (item.captionKey) {
+          const cap = document.createElement("span");
+          cap.className = "portfolio-caption";
+          cap.textContent = t(lang, item.captionKey);
+          wrap.appendChild(cap);
+        }
+        imageWrap.appendChild(wrap);
+      }
+
+      const multi = currentImages.length > 1;
+      prevBtn.hidden = !multi;
+      nextBtn.hidden = !multi;
+      dotsWrap.innerHTML = "";
+      if (multi) {
+        currentImages.forEach((_, i) => {
+          const dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = "portfolio-modal-dot" + (i === currentIndex ? " active" : "");
+          dot.setAttribute("aria-label", "Image " + (i + 1) + " / " + currentImages.length);
+          dot.addEventListener("click", () => { currentIndex = i; renderImage(); });
+          dotsWrap.appendChild(dot);
+        });
+      }
+    }
+
+    function openModal(id) {
+      const card = document.querySelector('.portfolio-card[data-project="' + id + '"]');
+      if (!card) return;
+      const lang = window.__dgLang === "en" ? "en" : "es";
+      currentImages = PROJECT_IMAGES[id] || [];
+      currentIndex = 0;
+
+      const h3 = card.querySelector("h3");
+      const projectName = h3 ? h3.textContent : "";
+      titleEl.textContent = projectName;
+      const descSource = card.querySelector(".portfolio-body > p");
+      descEl.textContent = descSource ? descSource.textContent : "";
+      const tagsSource = card.querySelector(".portfolio-tags");
+      tagsEl.innerHTML = tagsSource ? tagsSource.innerHTML : "";
+
+      const linkSource = card.querySelector(".portfolio-link");
+      if (linkSource) {
+        linkEl.href = linkSource.href;
+        linkEl.textContent = linkSource.textContent;
+        linkEl.style.display = "";
+        if (ctaEl) ctaEl.style.display = "none";
+      } else {
+        linkEl.style.display = "none";
+        // Sin link a un sitio en vivo (ej. proyectos sin sitio propio):
+        // mostramos el mismo CTA de WhatsApp que usan las tarjetas simples.
+        if (ctaEl) {
+          ctaEl.style.display = "inline-flex";
+          ctaEl.textContent = t(lang, "portfolio.ctaBtn");
+          const ctaMsg = encodeURIComponent(t(lang, "portfolio.ctaMessage").replace("{name}", projectName));
+          ctaEl.href = "https://wa.me/" + WA_PHONE + "?text=" + ctaMsg;
+        }
+      }
+
+      let noteEl = document.getElementById("portfolio-modal-note");
+      const noteSource = card.querySelector(".portfolio-note");
+      if (noteSource) {
+        if (!noteEl) {
+          noteEl = document.createElement("div");
+          noteEl.id = "portfolio-modal-note";
+          noteEl.className = "portfolio-note";
+          linkEl.insertAdjacentElement("afterend", noteEl);
+        }
+        noteEl.textContent = noteSource.textContent;
+        noteEl.style.display = "";
+      } else if (noteEl) {
+        noteEl.style.display = "none";
+      }
+
+      renderImage();
+
+      lastFocused = document.activeElement;
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      closeBtn.focus();
+    }
+
+    function openSimpleModal(p) {
+      const lang = window.__dgLang === "en" ? "en" : "es";
+      currentImages = [{ kind: "logo", src: p.logo, initials: initials(p.name) }];
+      currentIndex = 0;
+
+      titleEl.textContent = p.name;
+      descEl.textContent = t(lang, "portfolio.genericDesc").replace("{name}", p.name);
+      tagsEl.innerHTML = '<span class="portfolio-tag">' + t(lang, CATEGORY_KEYS[p.category]) + "</span>";
+
+      linkEl.style.display = "none";
+
+      const noteEl = document.getElementById("portfolio-modal-note");
+      if (noteEl) noteEl.style.display = "none";
+
+      if (ctaEl) {
+        ctaEl.style.display = "inline-flex";
+        ctaEl.textContent = t(lang, "portfolio.ctaBtn");
+        const ctaMsg = encodeURIComponent(t(lang, "portfolio.ctaMessage").replace("{name}", p.name));
+        ctaEl.href = "https://wa.me/" + WA_PHONE + "?text=" + ctaMsg;
+      }
+
+      renderImage();
+
+      lastFocused = document.activeElement;
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      closeBtn.focus();
+    }
+
+    function closeModal() {
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      if (lastFocused && lastFocused.focus) lastFocused.focus();
+    }
+    window.__closePortfolioModal = closeModal;
+
+    cards.forEach((card) => {
+      const id = card.getAttribute("data-project");
+      card.addEventListener("click", () => openModal(id));
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openModal(id); }
+      });
+      const link = card.querySelector(".portfolio-link");
+      if (link) link.addEventListener("click", (e) => e.stopPropagation());
+    });
+
+    prevBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+      renderImage();
+    });
+    nextBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % currentImages.length;
+      renderImage();
+    });
+    closeBtn.addEventListener("click", closeModal);
+    overlay.addEventListener("click", closeModal);
+    document.addEventListener("keydown", (e) => {
+      if (!modal.classList.contains("open")) return;
+      if (e.key === "Escape") closeModal();
+      if (e.key === "ArrowLeft") prevBtn.click();
+      if (e.key === "ArrowRight") nextBtn.click();
+    });
+
+    /* -- Listado completo: carrousel + buscador/chips desplegable -- */
+    const featuredGrid = document.getElementById("portfolio-grid");
+    const featuredPrev = document.getElementById("portfolio-featured-prev");
+    const featuredNext = document.getElementById("portfolio-featured-next");
+    const toggleBtn = document.getElementById("portfolio-all-toggle");
+    const toggleLabel = document.getElementById("portfolio-all-toggle-label");
+    const panelEl = document.getElementById("portfolio-all-panel");
+    const chipsWrap = document.getElementById("portfolio-chips");
+    const gridWrap = document.getElementById("portfolio-all-grid");
+    const emptyEl = document.getElementById("portfolio-all-empty");
+    const searchInput = document.getElementById("portfolio-search-input");
+    let activeCategory = "all";
+    let panelOpen = false;
+
+    function matchesSearch(p, query) {
+      if (!query) return true;
+      return p.name.toLowerCase().includes(query);
+    }
+
+    function buildProjectTile(p, cardClass, logoClass) {
+      const card = document.createElement("div");
+      card.className = cardClass;
+      card.tabIndex = 0;
+      card.setAttribute("role", "button");
+      card.setAttribute("aria-haspopup", "dialog");
+
+      const logoWrap = document.createElement("div");
+      logoWrap.className = logoClass;
+      if (p.logo) {
+        const img = document.createElement("img");
+        img.src = p.logo;
+        img.alt = p.name;
+        img.loading = "lazy";
+        logoWrap.appendChild(img);
+      } else {
+        logoWrap.classList.add("portfolio-all-logo-fallback");
+        logoWrap.textContent = initials(p.name);
+      }
+
+      const nameEl = document.createElement("div");
+      nameEl.className = "portfolio-all-name";
+      nameEl.textContent = p.name;
+
+      card.appendChild(logoWrap);
+      card.appendChild(nameEl);
+
+      const openThis = () => { p.featured ? openModal(p.id) : openSimpleModal(p); };
+      card.addEventListener("click", openThis);
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openThis(); }
+      });
+
+      return card;
+    }
+
+    if (featuredPrev && featuredNext && featuredGrid) {
+      // Avanza exactamente una tarjeta (+ el gap) por click, así cada flecha
+      // cambia de proyecto en vez de scrollear una fracción arbitraria.
+      const cardStep = () => {
+        const card = featuredGrid.querySelector(".portfolio-card");
+        if (!card) return featuredGrid.clientWidth;
+        const gap = parseFloat(getComputedStyle(featuredGrid).columnGap || "0") || 0;
+        return card.getBoundingClientRect().width + gap;
+      };
+      const updateFeaturedNavState = () => {
+        const maxScroll = featuredGrid.scrollWidth - featuredGrid.clientWidth;
+        featuredPrev.disabled = featuredGrid.scrollLeft <= 4;
+        featuredNext.disabled = maxScroll <= 4 || featuredGrid.scrollLeft >= maxScroll - 4;
+      };
+      featuredPrev.addEventListener("click", () => featuredGrid.scrollBy({ left: -cardStep(), behavior: "smooth" }));
+      featuredNext.addEventListener("click", () => featuredGrid.scrollBy({ left: cardStep(), behavior: "smooth" }));
+      featuredGrid.addEventListener("scroll", updateFeaturedNavState);
+      window.addEventListener("resize", updateFeaturedNavState);
+      updateFeaturedNavState();
+    }
+
+    function renderChips(lang) {
+      if (!chipsWrap) return;
+      const cats = ["all"].concat(Array.from(new Set(ALL_PROJECTS.map((p) => p.category))));
+      chipsWrap.innerHTML = "";
+      cats.forEach((cat) => {
+        const chip = document.createElement("button");
+        chip.type = "button";
+        chip.className = "portfolio-chip" + (cat === activeCategory ? " active" : "");
+        chip.textContent = cat === "all" ? t(lang, "portfolio.chipAll") : t(lang, CATEGORY_KEYS[cat]);
+        chip.addEventListener("click", () => {
+          activeCategory = cat;
+          const currentLang = window.__dgLang === "en" ? "en" : "es";
+          renderChips(currentLang);
+          renderAllGrid(currentLang);
+        });
+        chipsWrap.appendChild(chip);
+      });
+    }
+
+    function renderAllGrid(lang) {
+      if (!gridWrap) return;
+      const query = ((searchInput && searchInput.value) || "").trim().toLowerCase();
+      const filtered = ALL_PROJECTS.filter((p) => (activeCategory === "all" || p.category === activeCategory) && matchesSearch(p, query));
+      gridWrap.innerHTML = "";
+      filtered.forEach((p) => {
+        gridWrap.appendChild(buildProjectTile(p, "portfolio-all-card", "portfolio-all-logo"));
+      });
+      if (emptyEl) emptyEl.hidden = filtered.length > 0;
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener("input", () => {
+        renderAllGrid(window.__dgLang === "en" ? "en" : "es");
+      });
+    }
+
+    function updateToggleLabel(lang) {
+      if (!toggleLabel) return;
+      toggleLabel.textContent = t(lang, panelOpen ? "portfolio.hideAllBtn" : "portfolio.seeAllBtn");
+    }
+
+    if (toggleBtn && panelEl) {
+      toggleBtn.addEventListener("click", () => {
+        panelOpen = !panelOpen;
+        panelEl.hidden = !panelOpen;
+        toggleBtn.classList.toggle("open", panelOpen);
+        toggleBtn.setAttribute("aria-expanded", String(panelOpen));
+        updateToggleLabel(window.__dgLang === "en" ? "en" : "es");
+        if (panelOpen) panelEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    }
+
+    function refreshAll(lang) {
+      renderChips(lang);
+      renderAllGrid(lang);
+      updateToggleLabel(lang);
+    }
+    window.__renderPortfolioAll = refreshAll;
+    refreshAll(window.__dgLang || "es");
+
+    // Deep link: index.html#portfolio-all abre el listado completo directo
+    // (así se puede compartir el link "todos los proyectos" sin una página aparte)
+    if (window.location.hash === "#portfolio-all" && toggleBtn && panelEl) {
+      panelOpen = true;
+      panelEl.hidden = false;
+      toggleBtn.classList.add("open");
+      toggleBtn.setAttribute("aria-expanded", "true");
+      updateToggleLabel(window.__dgLang === "en" ? "en" : "es");
+      requestAnimationFrame(() => panelEl.scrollIntoView({ behavior: "smooth", block: "start" }));
+    }
+  })();
+
+  /* ======================================================================
+     FORMULARIO DE CONTACTO
+     Envía a /api/contact (función serverless en Vercel que usa Resend).
+     ====================================================================== */
+  (function initContactForm() {
+    const form = document.getElementById("contact-form");
+    if (!form) return;
+    const statusEl = document.getElementById("cf-status");
+    const submitBtn = document.getElementById("cf-submit");
+    const submitLabel = submitBtn ? submitBtn.querySelector("[data-i18n]") : null;
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const lang = window.__dgLang === "en" ? "en" : "es";
+
+      const name = document.getElementById("cf-name").value.trim();
+      const email = document.getElementById("cf-email").value.trim();
+      const message = document.getElementById("cf-message").value.trim();
+      const honeypot = document.getElementById("cf-company").value;
+
+      if (!name || !email || !message) {
+        statusEl.textContent = t(lang, "contact.statusInvalid");
+        statusEl.setAttribute("data-state", "error");
+        return;
+      }
+
+      submitBtn.disabled = true;
+      const originalLabel = submitLabel ? submitLabel.textContent : null;
+      if (submitLabel) submitLabel.textContent = t(lang, "contact.submitBtnSending");
+      statusEl.removeAttribute("data-state");
+      statusEl.textContent = "";
+
+      try {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, message, lang, _hp: honeypot }),
+        });
+        const data = await res.json().catch(() => ({}));
+
+        if (res.ok && data.ok) {
+          statusEl.textContent = t(lang, "contact.statusSuccess");
+          statusEl.setAttribute("data-state", "success");
+          form.reset();
+        } else {
+          statusEl.textContent = t(lang, "contact.statusError");
+          statusEl.setAttribute("data-state", "error");
+        }
+      } catch (err) {
+        statusEl.textContent = t(lang, "contact.statusError");
+        statusEl.setAttribute("data-state", "error");
+      } finally {
+        submitBtn.disabled = false;
+        if (submitLabel && originalLabel) submitLabel.textContent = t(lang, "contact.submitBtn");
+      }
+    });
+  })();
+</script>
 
 </body>
 </html>
