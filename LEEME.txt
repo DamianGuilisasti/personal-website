@@ -1,0 +1,44 @@
+SITIO DAMIAN GUILISASTI - archivos actualizados
+================================================
+
+Descomprimi este ZIP DENTRO de tu carpeta "dg website", pisando lo que ya esta.
+La estructura de carpetas del ZIP es la misma que la del sitio, asi que cada
+archivo cae solo en su lugar.
+
+QUE TRAE
+--------
+index.html            portada, con 17 proyectos destacados en el carrousel
+proyectos/  (23)      una ficha por proyecto (proyectos/retok.html, etc.)
+mock-ups/   (42)      21 mock-ups, cada uno en dos tamanos:
+                        <id>-mockup.jpg       -> imagen de la tarjeta
+                        <id>-mockup-full.jpg  -> imagen de la galeria
+sitios/     (63)      capturas de los sitios en vivo:
+                        <id>-desktop.jpg   portada en escritorio
+                        <id>-desktop2.jpg  la misma, scrolleada
+                        <id>-mobile.jpg    version celular
+capturas/   (9)       fotos de locales y capturas de reuniones, optimizadas
+logo-clientes/ (25)   logos comprimidos + hyar.png y reservameya.png (nuevos)
+foto.jpg              tu foto del hero, de 1,29 MB a 48 KB
+
+LISTO
+----
+Office Positivo   ficha completa, apunta a officeamoblamientos.com.ar
+Build Check Pro   ficha completa, con tu rol de IT manager del proyecto
+CDA               ficha limpia, sin el aviso
+
+Se saco el recuadro amarillo de borrador de las tres fichas y el CSS que
+lo pintaba de las 23. Falta una sola cosa: capturas de
+officeamoblamientos.com.ar para sitios/office-desktop.jpg,
+office-desktop2.jpg y office-mobile.jpg, y el mock-up
+mock-ups/office-mockup.jpg + office-mockup-full.jpg. Cuando esten, la
+ficha de Office muestra la galeria como el resto.
+
+NO SE USAN MAS (podes borrarlos para aligerar el repo)
+------------------------------------------------------
+mock-ups/ChatGPT Image *.png     ~9 MB   ya estan convertidos a .jpg
+capturas/9H.png, RETOK.png,
+  GRUPOA2.png, FARMACIA-PETRIRENA.png,
+  "Captura de pantalla *.png"    ~10 MB  idem
+porfolio/hyar-01.jpg                     salio con el hero a medio cargar
+_originales/                             copia de los logos y la foto en alta,
+                                         por si alguna vez los necesitas

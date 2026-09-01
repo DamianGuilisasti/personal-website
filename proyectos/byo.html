@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Byo Alimentos · Proyecto de Damian Guilisasti</title>
+<meta name="description" content="Sitio B2B para un fabricante de premezclas vegetales, harinas y rebozadores para la industria alimentaria, libre de gluten." />
+<link rel="canonical" href="https://damianguilisasti.com.ar/proyectos/byo.html" />
+<meta property="og:title" content="Byo Alimentos · Proyecto de Damian Guilisasti" />
+<meta property="og:description" content="Sitio B2B para un fabricante de premezclas vegetales, harinas y rebozadores para la industria alimentaria, libre de gluten." />
+<meta property="og:type" content="article" />
+<link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="../favicon-32x32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:      #0d0f14;
+  --surface: #161b25;
+  --border:  #1e2535;
+  --accent:  #4f8ef7;
+  --accent2: #7c3aed;
+  --green:   #25d366;
+  --text:    #e8eaf0;
+  --muted:   #7a8499;
+  --radius:  14px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+/* ---------------------------------------------------------------- nav */
+.site-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; padding: 1rem 2rem;
+  background: rgba(13,15,20,0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-weight: 700; font-size: 1.1rem; text-decoration: none;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.nav-back {
+  font-size: 0.88rem; font-weight: 600; color: var(--muted);
+  text-decoration: none; transition: color 0.2s;
+  white-space: nowrap;
+}
+.nav-back:hover { color: var(--text); }
+
+main { padding-top: 4.5rem; }
+
+.proj { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+
+/* ---------------------------------------------------------------- head */
+.crumb { font-size: 0.8rem; color: var(--muted); margin-bottom: 1.25rem; }
+.crumb a { color: var(--muted); text-decoration: none; }
+.crumb a:hover { color: var(--accent); }
+.crumb span { opacity: 0.5; margin: 0 0.15rem; }
+
+.proj-head h1 {
+  font-size: clamp(2.1rem, 6vw, 3.2rem);
+  font-weight: 800; line-height: 1.1; letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+.tag {
+  font-size: 0.75rem; font-weight: 600;
+  padding: 0.3rem 0.75rem; border-radius: 999px;
+  border: 1px solid rgba(79,142,247,0.3);
+  color: var(--accent); background: rgba(79,142,247,0.08);
+}
+.tag-cat { border-color: var(--border); color: var(--muted); background: transparent; }
+
+.lead {
+  font-size: clamp(1.05rem, 2.2vw, 1.22rem);
+  color: #c3c9d8; max-width: 68ch; margin-bottom: 2rem;
+}
+
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 3rem; }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.8rem 1.4rem; border-radius: 999px;
+  font-weight: 700; font-size: 0.92rem; text-decoration: none;
+  transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-wa { background: var(--green); color: #06210f; }
+.btn-wa:hover { box-shadow: 0 8px 24px rgba(37,211,102,0.28); }
+.btn-ghost { border: 1px solid var(--border); color: var(--text); background: var(--surface); }
+.btn-ghost:hover { border-color: rgba(79,142,247,0.5); }
+
+/* ---------------------------------------------------------------- galeria */
+.gallery { display: grid; gap: 1.25rem; margin-bottom: 3.5rem; }
+@media (min-width: 720px) { .gallery { grid-template-columns: 1fr 1fr; } }
+
+.shot {
+  border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden; background: #05070b; position: relative;
+}
+.shot img { width: 100%; height: 260px; object-fit: cover; object-position: top center; }
+.shot figcaption {
+  position: absolute; left: 0.7rem; bottom: 0.7rem;
+  background: rgba(13,15,20,0.88); backdrop-filter: blur(8px);
+  border: 1px solid var(--border); border-radius: 999px;
+  font-size: 0.7rem; font-weight: 600; padding: 0.3rem 0.7rem; color: var(--text);
+}
+/* el primero, a lo ancho */
+.gallery .shot:first-child { grid-column: 1 / -1; }
+.gallery .shot:first-child img { height: auto; max-height: 560px; object-fit: contain; background: #05070b; }
+
+.shot-phone img { height: auto; max-height: 620px; object-fit: contain; background: #05070b; padding: 1rem; }
+
+/* ---------------------------------------------------------------- cuerpo */
+.body-copy { max-width: 68ch; margin-bottom: 3.5rem; }
+.body-copy h2, .closing h2 {
+  font-size: 1.4rem; font-weight: 800; letter-spacing: -0.01em;
+  margin-bottom: 1.1rem;
+}
+.body-copy p { margin-bottom: 1.1rem; color: #c3c9d8; }
+.body-copy p:last-child { margin-bottom: 0; }
+
+.closing {
+  border-top: 1px solid var(--border);
+  padding-top: 2.5rem; margin-bottom: 3rem;
+}
+.closing p { color: var(--muted); max-width: 60ch; margin-bottom: 1.5rem; }
+
+/* ---------------------------------------------------------------- pager */
+.pager {
+  display: flex; justify-content: space-between; gap: 1rem;
+  border-top: 1px solid var(--border); padding-top: 1.75rem;
+}
+.pager-link {
+  font-size: 0.9rem; font-weight: 600; color: var(--muted);
+  text-decoration: none; transition: color 0.2s;
+  max-width: 45%;
+}
+.pager-link:hover { color: var(--accent); }
+.pager-next { text-align: right; }
+
+/* ---------------------------------------------------------------- footer */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 1.5rem; display: flex; flex-wrap: wrap;
+  gap: 1rem; justify-content: space-between;
+  max-width: 900px; margin: 0 auto;
+  font-size: 0.85rem; color: var(--muted);
+}
+footer a { text-decoration: none; color: var(--muted); }
+footer a:hover { color: var(--text); }
+
+@media (max-width: 600px) {
+  .site-nav { padding: 0.85rem 1.1rem; }
+  .proj { padding: 2rem 1.1rem 3rem; }
+  .shot img { height: 200px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="../index.html">Damian Guilisasti</a>
+  <a class="nav-back" href="../index.html#portfolio">← Todos los proyectos</a>
+</nav>
+
+<main>
+  <article class="proj">
+    <header class="proj-head">
+      <div class="crumb"><a href="../index.html">Inicio</a> <span>/</span>
+        <a href="../index.html#portfolio">Proyectos</a> <span>/</span> Byo Alimentos</div>
+      <h1>Byo Alimentos</h1>
+      <div class="tags"><span class="tag">Alimentos</span><span class="tag">Landing B2B</span><span class="tag">Catálogo</span><span class="tag tag-cat">Alimentos</span></div>
+      <p class="lead">Sitio B2B para un fabricante de premezclas vegetales, harinas y rebozadores para la industria alimentaria, libre de gluten.</p>
+      <div class="actions"><a class="btn btn-ghost" href="https://byoalimentos.com.ar/" target="_blank" rel="noopener">Ver el sitio en vivo →</a><a class="btn btn-wa" href="https://wa.me/5493413354475?text=Hola%20Damian%2C%20vi%20en%20tu%20p%C3%A1gina%20el%20proyecto%20de%20Byo%20Alimentos%20y%20me%20gustar%C3%ADa%20saber%20m%C3%A1s" target="_blank" rel="noopener">Preguntame por este proyecto</a></div>
+    </header>
+
+    
+    <div class="gallery"><figure class="shot"><img src="../mock-ups/byo-mockup-full.jpg" alt="Byo Alimentos — Diseño del sitio" loading="lazy" /><figcaption>Diseño del sitio</figcaption></figure><figure class="shot"><img src="../sitios/byo-desktop.jpg" alt="Byo Alimentos — El sitio en vivo" loading="lazy" /><figcaption>El sitio en vivo</figcaption></figure><figure class="shot"><img src="../sitios/byo-desktop2.jpg" alt="Byo Alimentos — El sitio en vivo" loading="lazy" /><figcaption>El sitio en vivo</figcaption></figure><figure class="shot shot-phone"><img src="../sitios/byo-mobile.jpg" alt="Byo Alimentos — En el celular" loading="lazy" /><figcaption>En el celular</figcaption></figure></div>
+
+    <section class="body-copy">
+      <h2>Sobre el proyecto</h2>
+      <p>Byo Alimentos fabrica premezclas vegetales y veganas, harinas, rebozadores y texturizados para la industria alimentaria, con producción libre de gluten.</p>
+<p>No le venden al consumidor final sino a otras empresas, así que el sitio tiene que resolver algo distinto a una tienda: transmitir capacidad productiva y estándar de calidad. Por eso las garantías —alimentación saludable, respeto por el medio ambiente, libre de gluten— están arriba de todo, antes que el catálogo.</p>
+<p>Los productos se listan por línea (premezclas, harinas y materias primas, rebozadores) para que un jefe de compras encuentre rápido si fabrican lo que necesita, y de ahí pase a contacto. El posicionamiento de la marca es ambicioso y el sitio lo acompaña sin quedarse corto: la misión declarada es alimentar al planeta.</p>
+    </section>
+
+    <section class="closing">
+      <h2>¿Tenés algo parecido en mente?</h2>
+      <p>Trabajo directo con vos, sin intermediarios. Contame qué necesitás y te digo con qué me encuentro.</p>
+      <a class="btn btn-wa" href="https://wa.me/5493413354475?text=Hola%20Damian%2C%20vi%20tu%20portfolio%20y%20quiero%20hablar%20de%20un%20proyecto"
+         target="_blank" rel="noopener">Hablemos por WhatsApp</a>
+    </section>
+
+    <div class="pager"><a class="pager-link" href="fumisol.html">← Fumisol</a><a class="pager-link pager-next" href="espejo.html">Espejo Mallorquín →</a></div>
+  </article>
+</main>
+
+<footer>
+  <a href="../index.html">← Volver al inicio</a>
+  <span>© <span id="y"></span> Damian Guilisasti</span>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
