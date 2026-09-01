@@ -128,6 +128,26 @@ main { padding-top: 4.5rem; }
 
 .shot-phone img { height: auto; max-height: 620px; object-fit: contain; background: #05070b; padding: 1rem; }
 
+/* ---------------------------------------------------------------- app */
+.app-shots { margin-bottom: 3.5rem; }
+.app-shots h2 {
+  font-size: 1.4rem; font-weight: 800; letter-spacing: -0.01em;
+  margin-bottom: 0.4rem;
+}
+.app-shots p.app-note { color: var(--muted); font-size: 0.92rem; margin-bottom: 1.4rem; }
+.phones { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+@media (min-width: 720px) { .phones { grid-template-columns: repeat(4, 1fr); } }
+.phone {
+  border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden; background: #05070b;
+}
+.phone img { width: 100%; height: auto; }
+.phone figcaption {
+  font-size: 0.72rem; font-weight: 600; color: var(--muted);
+  padding: 0.55rem 0.7rem; text-align: center;
+  border-top: 1px solid var(--border);
+}
+
 /* ---------------------------------------------------------------- cuerpo */
 .body-copy { max-width: 68ch; margin-bottom: 3.5rem; }
 .body-copy h2, .closing h2 {
@@ -194,6 +214,17 @@ footer a:hover { color: var(--text); }
 
     
     <div class="gallery"><figure class="shot"><img src="../mock-ups/reservameya-mockup-full.jpg" alt="ReservameYa — Diseño del sitio" loading="lazy" /><figcaption>Diseño del sitio</figcaption></figure><figure class="shot"><img src="../sitios/reservameya-desktop.jpg" alt="ReservameYa — El sitio en vivo" loading="lazy" /><figcaption>El sitio en vivo</figcaption></figure><figure class="shot"><img src="../sitios/reservameya-desktop2.jpg" alt="ReservameYa — El sitio en vivo" loading="lazy" /><figcaption>El sitio en vivo</figcaption></figure><figure class="shot shot-phone"><img src="../sitios/reservameya-mobile.jpg" alt="ReservameYa — En el celular" loading="lazy" /><figcaption>En el celular</figcaption></figure></div>
+
+    <section class="app-shots">
+      <h2>La app</h2>
+      <p class="app-note">La aplicación para el negocio: agenda del día, disponibilidad y clientes desde el celular.</p>
+      <div class="phones">
+        <figure class="phone"><img src="../sitios/reservameya-app-inicio.jpg" alt="ReservameYa — Pantalla de inicio de la app, con los turnos del día" width="640" height="1387" loading="lazy" /><figcaption>Inicio</figcaption></figure>
+        <figure class="phone"><img src="../sitios/reservameya-app-turnos.jpg" alt="ReservameYa — Listado de turnos en la app" width="640" height="1387" loading="lazy" /><figcaption>Turnos</figcaption></figure>
+        <figure class="phone"><img src="../sitios/reservameya-app-disponibilidad.jpg" alt="ReservameYa — Gestión de disponibilidad en la app" width="640" height="1387" loading="lazy" /><figcaption>Disponibilidad</figcaption></figure>
+        <figure class="phone"><img src="../sitios/reservameya-app-clientes.jpg" alt="ReservameYa — Ficha de clientes en la app" width="640" height="1387" loading="lazy" /><figcaption>Clientes</figcaption></figure>
+      </div>
+    </section>
 
     <section class="body-copy">
       <h2>Sobre el proyecto</h2>

@@ -295,6 +295,45 @@
     .service-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
     .service-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
 
+    /* RESEÑAS */
+    .reviews-score {
+      display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1rem 1.25rem;
+      margin-bottom: 1.75rem; width: fit-content; max-width: 100%;
+    }
+    .reviews-score .rs-num { font-size: 1.6rem; font-weight: 800; line-height: 1; }
+    .reviews-score .rs-stars { color: #fbbc04; font-size: 1rem; letter-spacing: 0.08em; }
+    .reviews-score .rs-meta { font-size: 0.85rem; color: var(--muted); }
+
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 1.25rem; }
+    .review-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.6rem;
+      display: flex; flex-direction: column; gap: 0.9rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .review-card:hover { border-color: rgba(79,142,247,0.4); transform: translateY(-4px); }
+    .review-stars { color: #fbbc04; font-size: 0.9rem; letter-spacing: 0.08em; }
+    .review-card blockquote { font-size: 0.92rem; line-height: 1.7; color: #c3c9d8; }
+    .review-author { display: flex; align-items: center; gap: 0.7rem; margin-top: auto; }
+    .review-avatar {
+      width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 700; color: #fff;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+    }
+    .review-name { font-size: 0.88rem; font-weight: 700; }
+    .review-meta { font-size: 0.75rem; color: var(--muted); }
+    .reviews-cta {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      margin-top: 1.75rem; font-size: 0.9rem; font-weight: 600;
+      color: var(--accent); text-decoration: none;
+    }
+    .reviews-cta:hover { text-decoration: underline; }
+
     /* PORTFOLIO */
     .portfolio-featured-carousel-wrap { position: relative; display: flex; align-items: center; gap: 0.75rem; }
     .portfolio-grid {
@@ -1358,6 +1397,61 @@
   </div>
 </section>
 
+<!-- RESEÑAS -->
+<section id="resenas">
+  <div class="section-inner">
+    <div class="section-tag" data-i18n="reviews.tag">Reseñas</div>
+    <h2 class="section-title" data-i18n="reviews.title">Lo que dicen mis clientes</h2>
+    <p class="section-sub" data-i18n="reviews.sub">Reseñas reales publicadas en mi perfil de Google. Todas verificables desde el enlace de abajo.</p>
+
+    <div class="reviews-score">
+      <span class="rs-num">5,0</span>
+      <span class="rs-stars" aria-hidden="true">★★★★★</span>
+      <span class="rs-meta" data-i18n="reviews.score">34 reseñas en Google</span>
+    </div>
+
+    <div class="reviews-grid">
+      <article class="review-card">
+        <div class="review-stars" aria-label="5 de 5">★★★★★</div>
+        <blockquote>“Querido Damián, GRACIAS por tanto! Tu profesionalidad, entrega, esmero y creatividad son dignas de aplauso. Gracias también por la infinita paciencia para armar el equipo de trabajo, siempre disponible, siempre amable, siempre con una sonrisa, siempre con la respuesta inmediata. Te deseamos todo el éxito del mundo!!!”</blockquote>
+        <div class="review-author">
+          <div class="review-avatar" aria-hidden="true">E</div>
+          <div>
+            <div class="review-name">Elvis Sanfuentes Alvarez</div>
+            <div class="review-meta">Google · Local Guide</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <div class="review-stars" aria-label="5 de 5">★★★★★</div>
+        <blockquote>“Es una empresa muy seria y responsable que sabe escuchar y asesorar en todo lo que el cliente necesita. 1000% de compromiso con el proyecto en todo momento y rápidisima respuesta. Da gusto trabajar con gente así. Altamente recomendable en todo sentido, muy profesionales.”</blockquote>
+        <div class="review-author">
+          <div class="review-avatar" aria-hidden="true">S</div>
+          <div>
+            <div class="review-name">Santiago Abud</div>
+            <div class="review-meta">Google</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <div class="review-stars" aria-label="5 de 5">★★★★★</div>
+        <blockquote>“Le encargamos a Damián el diseño y construcción del nuevo sitio web de nuestra empresa, CSi Electrónica S.R.L. Realmente hizo un trabajo impecable, muy prolijo y minucioso…”</blockquote>
+        <div class="review-author">
+          <div class="review-avatar" aria-hidden="true">J</div>
+          <div>
+            <div class="review-name">José (Pepe) Kapu</div>
+            <div class="review-meta">CSi Electrónica S.R.L. · Google</div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <a class="reviews-cta" href="https://www.google.com/maps/place/Dami%C3%A1n+Guilisasti/@-38.45155,-63.5989752,4z/data=!3m1!4b1!4m6!3m5!1s0x95b7ab3c8fca48a1:0xaafbd1956f63a8b4!8m2!3d-38.45155!4d-63.5989752!16s%2Fg%2F11f4m9xn4k?hl=es" target="_blank" rel="noopener" data-i18n="reviews.cta">Ver las 34 reseñas en Google →</a>
+  </div>
+</section>
+
 <!-- CONTACTO -->
 <section id="contacto">
   <div class="section-inner">
@@ -1533,6 +1627,11 @@
       "about.h3Desc": "Software mantenible, escalable y bien documentado. Tu inversión dura en el tiempo.",
       "about.h4Title": "Experiencia internacional",
       "about.h4Desc": "Proyectos en múltiples países y sectores. Experiencia real con diferentes mercados.",
+      "reviews.tag": "Reseñas",
+      "reviews.title": "Lo que dicen mis clientes",
+      "reviews.sub": "Reseñas reales publicadas en mi perfil de Google. Todas verificables desde el enlace de abajo.",
+      "reviews.score": "34 reseñas en Google",
+      "reviews.cta": "Ver las 34 reseñas en Google →",
       "contact.tag": "Contacto",
       "contact.title": "¿Hablamos de tu proyecto?",
       "contact.sub": "Contame sobre tu proyecto y te respondo en menos de 24hs.",
@@ -1672,6 +1771,11 @@
       "about.h3Desc": "Maintainable, scalable and well-documented software. Your investment lasts over time.",
       "about.h4Title": "International experience",
       "about.h4Desc": "Projects across multiple countries and industries. Real experience with different markets.",
+      "reviews.tag": "Reviews",
+      "reviews.title": "What my clients say",
+      "reviews.sub": "Real reviews published on my Google profile — all verifiable through the link below.",
+      "reviews.score": "34 reviews on Google",
+      "reviews.cta": "See all 34 reviews on Google →",
       "contact.tag": "Contact",
       "contact.title": "Let's talk about your project",
       "contact.sub": "Tell me about your project and I'll get back to you within 24 hours.",
